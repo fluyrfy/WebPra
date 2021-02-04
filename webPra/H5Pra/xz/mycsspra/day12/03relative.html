@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 200px;height: 200px;
+    }
+    #d1{
+      background-color: #ff0;
+      position: relative;
+      left: 20px;top: 20px;
+    }
+    #d2{
+      background-color: #0ff;
+    }
+  </style>
+</head>
+<body>
+  <h3>元素定位後解鎖偏移屬性</h3>
+  <div id="d1">相對定位-position:relative沒有脫離文檔流</div>
+  <div id="d2">相對定位，相對自己原來的位置偏移某個距離</div>
+  <br><hr><br>
+  <h4>使用場合: <br> 1.元素本身，位置微調(類似margin)<br>2.一般作為絕對定位的祖先元素
+  </h4>
+</body>
+</html>

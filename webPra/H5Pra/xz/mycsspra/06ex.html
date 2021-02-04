@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    a:link{color: pink;}
+    a:visited{color: orange;}
+    a:hover{color: red;}
+    a:active{color: green;}
+    input:focus{background-color: yellow;}
+  </style>
+</head>
+<body>
+  <h2>偽類有嚴格編寫順序</h2>
+  <input type="text"><br>
+  <a href="http://www.yahoo.com.tw">雅虎</a>
+  <div>
+    <p>
+      <h2>權值越高，優先級越高</h2>
+      !important > 1000 <br>
+      內聯 = 1000 <br>
+      id選擇器 = 100 <br>
+      class和偽類 = 10 <br>
+      元素選擇器 = 1 <br>
+      通用選擇器 = 0 <br>
+      繼承樣式 無權值
+    </p>
+  </div>
+</body>
+</html>

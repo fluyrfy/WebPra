@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function msg1() {
+      let val=uname.value;
+      if(val==''){
+        msg.innerHTML='用戶名不能為空'
+      }
+      else{
+        msg.innerHTML='輸入正確'
+      }
+    }
+    function msg2() {
+      msg.innerHTML='用戶名6~12位';
+    }
+  </script>
+</head>
+<body>
+  <input onblur="msg1()" onfocus="msg2()" type="text" id="uname">
+  <span id="msg"></span>
+</body>
+</html>

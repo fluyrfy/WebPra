@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>折疊導航欄</h1>
+    <div class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a href="#" class="navbar-brand">Bootstrap中文網</a>
+      <button type="" class="navbar-toggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Boot3</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Boot4</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">全局css</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">組件</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <h1>手風琴</h1>
+    <div id="parent">
+      <div class="card">
+        <div class="card-header"><a href="#c1" class="card-link" data-toggle="collapse">卡片一</a>
+        </div>
+        <div class="collapse" id="c1" data-parent="#parent">
+          <div class="card-body">
+            Lorem ipsum dolor sit amet.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><a href="#c2" class="card-link" data-toggle="collapse">卡片二</a>
+        </div>
+        <div class="collapse" id="c2" data-parent="#parent">
+          <div class="card-body" >
+            Lorem ipsum dolor sit amet.
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><hr><br>
+    <h1>卡片</h1>
+    <div class="card">
+      <div class="card-header"><a href="#" class="card-link">標題</a></div>
+      <div class="card-body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita voluptatibus veniam quam consequatur non incidunt ullam aut, et natus nulla.</div>
+      <div class="card-footer">
+        <button class="btn btn-info">已閱讀</button>
+      </div>
+    </div>
+    <br><hr><br>
+    <h1>折疊</h1>
+    <button class="btn btn-danger" data-toggle="collapse" data-target="#demo1">按鈕折疊</button>
+    <a href="#demo2" class="btn btn-info" data-toggle="collapse">a標籤折疊</a>
+    <div class="collapse" id="demo1">
+      button折疊演示
+    </div>
+    <div class="collapse" id="demo2">
+      a標籤摺疊演示
+    </div>
+    <br><hr><br>
+    <h1>導航欄</h1>
+    <div class="navbar navbar-expand-lg">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="#" class="nav-link">導航欄一</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">導航欄一</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">導航欄一</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">導航欄一</a>
+        </li>
+      </ul>
+    </div>
+    <br><hr><br>
+    <h1>膠囊導航</h1>
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="#tab5" class="nav-link" data-toggle="pill">口紅</a></li>
+      <li class="nav-item"><a href="#tab6" class="nav-link" data-taggle="pill">跑車</a></li>
+      <li class="nav-item"><a href="#tab7" class="nav-link" data-toggle="pill">手提包</a></li>
+      <li class="nav-item"><a href="#tab8" class="nav-link" data-toggle="pill">手錶</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="tab5" class="tab-pane">YSL,Dior,Chanel</div>
+      <div id="tab6" class="tab-pane">Audi</div>
+      <div id="tab7" class="tab-pane">Lorem, ipsum dolor.</div>
+      <div id="tab8" class="tab-pane">Lorem ipsum dolor sit amet.</div>
+    </div>
+    <br><hr><br>
+    <h1>選項卡導航</h1>
+    <!-- 水平導航欄 -->
+    <ul class="nav nav-tabs">
+      <li class="nav-item"><a data-toggle="tab" href="#tab1" class="nav-link">四川菜</a></li>
+      <li class="nav-item"><a data-toggle="tab" href="#tab2" class="nav-link">雲南菜</a></li>
+      <li class="nav-item"><a data-toggle="tab" href="#tab3" class="nav-link">東北菜</a></li>
+      <li class="nav-item"><a data-toggle="tab" href="#tab4" class="nav-link">山西菜</a></li>
+    </ul>
+    <!-- 顯示的內容 -->
+    <div class="tab-content">
+      <div id="tab1" class="tab-pane">可樂</div>
+      <div id="tab2" class="tab-pane">雪碧</div>
+      <div id="tab3" class="tab-pane">芬達</div>
+      <div id="tab4" class="tab-pane">七喜</div>
+    </div>
+    <br><hr><br>
+    <h1>導航</h1>
+    <ul class="nav">
+      <li class="nav-item"><a class="nav-link" href="#">秒殺</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">優惠券</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">PLUS會員</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">閃購</a></li>
+    </ul>
+  </div>
+</body>
+</html>

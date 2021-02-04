@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #d1{
+      width: 500px;height: 500px;
+      background-color: #ff0;
+      background-image: url(img/d1.jpg);
+      background-repeat: no-repeat;
+      background-position:50% 50%;
+      background-size: 100%;
+    }
+    #d2{
+      width: 400px;height: 400px;
+      border: 3px solid #f00;
+      background-image: url(img/img1_wide.jpg);
+      background-repeat: no-repeat;
+      /* background-size: cover; */
+      background-size: contain;
+    }
+    #d3{
+      width: 300px;height: 400px;
+      border: 2px solid #f00;
+      background-image: url(img/09.png);
+      background-repeat: no-repeat;
+      background-color: #0ff;
+      background-size: 150px;
+      background-attachment: fixed;
+    }
+    #d4{
+      width: 400px;height: 400px;
+      border: 2px solid #f00;
+      background: #ff0 url(img/09.png) no-repeat scroll right bottom;
+      /* background: color/image();終極簡寫 */
+    }
+  </style>
+</head>
+<body>
+  <div id="d1"></div>
+  <br><hr><br>
+  <div id="d2"></div><br>
+  <div id="d3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque assumenda facilis reiciendis culpa illo omnis inventore laboriosam recusandae, eius dignissimos unde sed officiis adipisci facere distinctio ut non neque temporibus!</div><br>
+  <div id="d4"></div>
+</body>
+</html>

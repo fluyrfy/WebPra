@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <style>
+    .my_h{
+      height: 400px;
+      background: linear-gradient(to right,#0d0536,#562949);
+    }
+    .my_pt{
+      padding-top: 100px;
+    }
+    .my_fontsize{font-size: 60px;}
+    @media screen and (min-width:992px){
+      .img_width{width: 25%;}
+    }
+    @media screen and (max-width:767px){
+      .img_width{width: 100%;}
+    }
+    @media screen and (max-width:991px) and (min-width:768px){
+      .img_width{width: 50%;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container ">
+    <ul class="list-unstyled bg-dark clearfix mb-0">
+      <li class="float-left p-3">
+        <a href="#" class="text-muted">Boot中文網</a>
+      </li>
+      <li class="float-left p-3"><a href="" class="text-muted">起步</a></li>
+      <li class="float-left p-3"><a href="" class="text-muted">css全局樣式</a></li>
+      <li class="float-left p-3"><a href="" class="text-muted">組件</a></li>
+      <li class="float-left p-3"><a href="" class="text-muted">js插件</a></li>
+      <li class="float-left p-3"><a href="" class="text-muted">訂製</a></li>
+    </ul>
+    <div id="content" class="text-center my_pt my_h">
+      <h1 class="text-white mb-3 my_fontsize">Bootstrap</h1>
+      <h5 class="text-muted mb-3">簡潔、直觀、強悍</h5>
+      <a href="" class="btn btn-primary mb-3">Bootstrap3中文文檔</a>
+      <p class="text-muted ">Bootstrap2中文文檔</p>
+    </div>
+    <div>
+      <img class="img_width" src="./img/boot-1.png" alt=""><img class="img_width" src="./img/boot-2.png" alt=""><img class="img_width" src="./img/boot-3.png" alt=""><img class="img_width" src="./img/boot-4.png" alt="">
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+//標記自己命名，只有雙標記沒有單標記
+<?xml version='1.0' encoding='utf-8'?>
+<studentlist>
+  <student>
+    <uid>1001</uid>
+    <uname>hanmeimei</uname>
+    <age>20</age>
+  </student>
+  <student>
+    <uid>1002</uid>
+    <uname>lilei</uname>
+    <age>21</age>
+  </student>
+</studentlist>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #div{
+      width: 200px;height: 200px;
+      position: absolute;
+    }
+    #d1{
+      background-color: #ff0;top: 0px;
+      z-index: 100; /*手動調整堆疊順序，樓層*/
+    }
+    #d2{background-color: #0ff;top: 15px;}
+    #d3{background-color: #f0f;top: 30px;}
+  </style>
+</head>
+<body>
+  <div id="d1"></div>
+  <div id="d2"></div>
+  <div id="d3">堆疊順序對父子關係無效，兒子永遠在父親的上面</div>
+</body>
+</html>

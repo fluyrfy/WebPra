@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{width: 200px;height: 200px;}
+    div:empty{background-color: #f00;}
+    a:only-child{color:#666;}
+    a:not(:only-child){color: #0f0;}/*否定偽類*/
+  </style>
+</head>
+<body>
+  <div></div>
+  <div><a href="">123</a></div>
+  <div>
+    <a href="">1111</a>
+    <a href="">2222</a>
+    <a href="">3333</a>
+    <a href="">4444</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table{
+      width: 400px;height: 400px;
+      border: 1px solid #000;
+      /* border-collapse: collapse;邊框合併 */
+      border-collapse: separate;
+      border-spacing: 20px 20px;/*td設置margin無效，設置邊框間距，前提為邊框分離。*/
+      caption-side: bottom;
+      table-layout: fixed;/*表格顯示規則*/
+    }
+    td{
+      /* width: 100px;height: 100px; */
+      border: 1px solid #000;
+      margin: 30px;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <caption>表格練習OUO</caption>
+    <tr>
+      <td>fixed固定表格布局</td>
+      <td>auto自動表格布局</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>自動布局加載慢</td>
+      <td>逐行渲染，速度快</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>自動布局比較靈活</td>
+      <td>固定布局不靈活</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>適用於不確定每列大小，並且不複雜的表格</td>
+      <td>適用於明確知道每列大小的表格</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</body>
+</html>

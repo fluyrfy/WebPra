@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="getAjax()">第一個ajax</button>
+  <button></button>
+  <script>
+    function getAjax() {
+      let xhr=new XMLHttpRequest();
+      console.log(xhr);
+      xhr.onreadystatechange=function () {
+        if(xhr.readyState==4 && xhr.status==200){
+          let result=xhr.responseText;
+          alert(result);
+        }
+      }
+      xhr.open('get','/demo/ajaxDemo',true);
+      xhr.send(null);
+    }
+  </script>
+</body>
+</html>

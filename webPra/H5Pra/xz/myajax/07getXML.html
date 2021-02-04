@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function getXML() {
+      let xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function () {
+        if (xhr.readyState==4 && xhr.status==200) {
+          let result=xhr.responseXML; //對象
+          //console.log(result);
+          let studentlist=result.getElementsByTagName('studenlist');
+        }
+      }
+      xhr.open('get','stus.xml',true);
+      xhr.send(null);
+    }
+  </script>
+</head>
+<body>
+  <div id="d1">
+    <button onclick="getXML()">獲取XML</button>
+  </div>
+</body>
+</html>

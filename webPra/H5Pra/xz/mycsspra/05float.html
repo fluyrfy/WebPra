@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #d1{
+      height: 200px;background: #ff0;
+      float: left;
+    }
+    #d2{
+      height: 200px;background: #0ff;
+      float: left;
+    }
+    #s1,#s2{
+      width: 200px;height: 200px;
+      float: left;
+    }
+    #s1{background: #ff0;}
+    #s2{background-color: #0ff;}
+  </style>
+</head>
+<body>
+  <h2>元素一旦浮動，如果元素沒有定義寬度，那麼浮動之後，元素的寬度靠內容撐開</h2><br><hr><br>
+  <h2>元素一旦脫離文檔流，會變成塊級元素，尺寸，垂直外邊距都生效</h2><br><hr><br>
+  <h3>脫離文檔流:1.不占頁面空間 2.後續元素上前補位 3.變成塊級元素</h3>
+  <span id="s1">ssss1111</span>
+  <span id="s2">ssss2222</span>
+  <div id="d1">1111</div>
+  <div id="d2">2222</div>
+</body>
+</html>

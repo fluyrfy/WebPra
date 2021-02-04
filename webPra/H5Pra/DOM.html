@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function show() {
+      var obj=document.getElementById("uname");
+      console.log(obj);
+      console.log(obj.value);
+      var obj_div=document.getElementById('d1');
+      obj_div.innerHTML=obj.value;
+      console.log(obj_div.innerHTML);
+      var obj_p=document.getElementById('p1');
+      obj_p.innerHTML=obj.value;
+      console.log(uname);//ES6簡化，使用元素ID代表整個元素對象
+    }
+  </script>
+</head>
+<body>
+  <input id="uname" type="text">
+  <div id="d1"></div>
+  <p id="p1"></p>
+  <button onclick="show()">顯示</button>
+</body>
+</html>

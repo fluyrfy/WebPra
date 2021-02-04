@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h4::first-letter{
+      color: #f00;
+      font: 36px chiller;
+    }/*偽元素選擇器*/
+    h4::first-line{
+      color: #f0f;
+      font: 24px "mv boli";
+    }
+    h4::selection{color: #0ff;background-color: #ff0;}
+    div::before{
+      content: '蒙其D魯夫說:';/*content中只能給字符串或url(img)*/
+      display: block;
+      color: #0ff;
+      width: 50px;height: 50px;
+    }/*偽元素選擇器，內容生成*/
+    p::after{content: '真的很難看';}
+  </style>
+</head>
+<body>
+  <p>可愛巧虎島</p>
+  <div>我要成為海賊王</div>
+  <br>
+  <hr>
+  <br>
+  <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet obcaecati maiores aut quaerat quidem officia dolorum voluptatibus adipisci odit similique cupiditate deserunt aspernatur iste vero possimus explicabo voluptatum vitae ratione, sapiente consequuntur magni. Maxime, aperiam sit ipsa id eos ipsam repudiandae autem sequi quas fuga est velit quasi at quidem facilis explicabo, hic necessitatibus alias temporibus maiores dolorem. Aliquid inventore minima iste molestias nostrum illum animi eos officiis quaerat, quasi vel deleniti, officia natus dolore temporibus. Officiis velit illo dolore quis est totam! Autem odit suscipit ut perspiciatis quisquam asperiores commodi nesciunt dolorem, aliquid facilis in velit quasi tempore repellendus non, aliquam architecto corporis veritatis perferendis eos voluptate sapiente mollitia. Unde ipsa rerum libero sunt. Dolor, quaerat. In numquam accusantium ut corporis, rerum a, qui adipisci eveniet culpa architecto ex dolores illum. Ipsam molestias in reiciendis qui! Nisi consectetur vel, numquam, aperiam eaque accusantium incidunt ratione sed eius omnis fugit. Laboriosam magnam ea voluptatem suscipit temporibus dolor corporis, atque architecto culpa tempora. Consectetur dolore corrupti porro beatae pariatur, amet suscipit aliquam reiciendis veniam! Doloribus, vel? Officiis itaque odit nulla nesciunt consequuntur? Et sapiente nisi culpa temporibus inventore voluptatem, tempore repudiandae delectus eligendi perferendis, cum voluptatum a fuga reprehenderit placeat ea.</h4>
+</body>
+</html>

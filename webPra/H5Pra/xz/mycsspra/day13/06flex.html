@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #d1{
+      border: 2px solid #f00;
+      display: flex;/*元素設置為flex容器後，容器的text-align,vertical-align失效,項目float,clear失效*/
+      flex-direction: row-reverse;/*主軸方向,反轉*/
+      /* flex-wrap: wrap-reverse;換行 */
+      /*簡寫方式:flex-flow: direction  wrap;*/
+      justify-content: space-around;
+      height: 500px;
+      /* align-items: flex-end;設置項目在交叉軸上的對齊方式,stretch 項目不寫高，充滿容器整個高度 */
+    }
+    #d2,#d3,#d4{
+      width: 200px;height: 200px;
+    }
+    #d2{background-color: #0f0;align-self: flex-end;/*flex-shrink: 1;/*flex-grow:10;order: 2;/*項目排序*/}
+    #d3{background-color: #00f;order: 3;flex-shrink: 10;}
+    #d4{background-color: #777;order: 1;flex-shrink: 100;}
+  </style>
+</head>
+<body>
+  <div id="d1">
+    <div id="d2"></div>
+    <div id="d3"></div>
+    <div id="d4"></div>
+  </div>
+</body>
+</html>

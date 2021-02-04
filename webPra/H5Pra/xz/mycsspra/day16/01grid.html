@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <style>
+    .container>div{border: 2px solid #f00;}
+    .container>div>div{border: 2px solid #00f;}
+  </style>
+</head>
+<body>
+
+  <h1>柵格系統分成12等分</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-5">col-5</div>
+      <div class="col-7">
+        <div class="row">
+          <div class="col-4">col-4</div>
+          <div class="col-4">col-4</div>
+          <div class="col-4">col-4</div>
+        </div>
+      </div>
+    </div>
+    <br><hr><br>
+    <h1>列偏移</h1>
+    <div class="row">
+      <div class="col-3 offset-9">col-3</div>
+    </div>
+    <div class="row">
+      <div class="col-4 offset-8">col-4</div>
+    </div>
+    <br><hr><br>
+    <h1>自帶媒體查詢</h1>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-12">1</div>
+      <div class="col-lg-3 col-md-6 col-sm-12">2</div>
+      <div class="col-lg-3 col-md-6 col-sm-12">3</div>
+      <div class="col-lg-3 col-md-6 col-sm-12">4</div>
+    </div>
+    <h1>一行三列1:1:1</h1>
+    <div class="row">
+      <div class="col-4">col-4</div>
+      <div class="col-4">col-4</div>
+      <div class="col-4">col-4</div>
+    </div>
+    <h1>一行三列1:2:1</h1>
+    <div class="row">
+      <div class="col-3">col-3</div>
+      <div class="col-6">col-6</div>
+      <div class="col-3">col-3</div>
+    </div>
+    <h1>一行四列1:1:1:1</h1>
+    <div class="row">
+      <div class="col-3">col-3</div>
+      <div class="col-3">col-3</div>
+      <div class="col-3">col-3</div>
+      <div class="col-3">col-3</div>
+    </div>
+    <h1>一行四列1:2:2:1</h1>
+    <div class="row">
+      <div class="col-2">col-2</div>
+      <div class="col-4">col-4</div>
+      <div class="col-4">col-4</div>
+      <div class="col-2">col-2</div>
+    </div>
+    <br><hr><br>
+    <div class="row">
+      <div class="col-1">col-1</div>
+    </div>
+  </div>
+</body>
+</html>

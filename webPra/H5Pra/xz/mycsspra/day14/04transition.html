@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 200px;height: 200px;
+      background-color: #0ff;
+      /*讓css的值，在一段時間內平緩的變化*/
+      /*1.指定過度的屬性*/
+      /* transition-property: background border-radius; */
+      transition-property: all;
+      /*2.過度持續的時間*/
+      transition-duration: 3s;
+      /*3.過渡時間曲線函數*/
+      transition-timing-function: ease-in-out;
+      /*4.延遲執行*/
+      transition-delay: 2s;
+      /*簡寫方式*/
+      /*transition: property duration timing-function delay;*/
+    }
+    div:hover{
+      background-color: #f00;
+      border-radius: 50%;
+      transform: translateY(400px) rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div id=""></div>
+</body>
+</html>

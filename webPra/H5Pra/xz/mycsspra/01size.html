@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    #d1{
+      /* width: 200px; */
+      /* height: 200px; */
+      max-width: 500px;
+      min-width: 400px;
+      background-color: yellow;
+    }
+    span{
+      width: 200px;height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <span>行內元素設置寬高無效，寬高靠內容撐</span>
+  <div id="d1">塊級元素不寫寬，默認寬度佔滿父容器寬度100%。
+    不寫高，默認高度靠內容撐
+  </div>
+</body>
+</html>

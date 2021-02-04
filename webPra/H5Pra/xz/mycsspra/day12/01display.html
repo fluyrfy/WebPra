@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    a{
+      width: 200px;height: 200px;
+      background-color: #0ff;
+      margin: 10px;
+
+    }
+    div{
+      width: 200px;height: 200px;
+      background: #f0f;
+      margin: 10px;
+    }
+    #d2{
+      visibility: hidden;
+    }
+    #d3{
+      background-color: rgb(0, 95, 104);
+      opacity: .5;
+    }
+    #d4{
+      background: rgba(0, 95, 104, .5);
+    }
+    .c1{
+      width: 100px;height: 100px;
+      background-color: #000;
+    }
+    img{
+      width: 200px;height: 200px;
+      border: 2px solid #000;
+      vertical-align: top;
+    }
+    img:hover{
+      cursor: pointer;
+      /*default,crosshair,text,wait,help*/
+    }
+  </style>
+</head>
+<body>
+  <img src="../img/d1.jpg" alt="">圖片vertical-align演示，控制img前後文字。默認值:baseline
+  <br><hr><br>
+  <h3>opacity作用於元素，主要是顏色相關的屬性都會改變透明度。rgba只會修改當前顏色的透明度</h3>
+  <div id="d3">opacity
+    <div class="c1"></div>
+  </div>
+  <div id="d4">rgba
+    <div class="c1"></div>
+  </div>
+  <br><hr><br>
+  <div id="d1">111111</div>
+  <div id="d2">222222</div>
+  <br>
+  <hr>
+  <br>
+  <a href="" style="display: none;">隱藏元素</a>
+  <a href="" style="display: block;">塊級元素</a>
+  <a href="" style="display: inline;">行內元素</a>
+  <a href="" style="display: inline-block;">行內塊元素</a>
+  <a href="" style="display: table;">table元素</a>
+</body>
+</html>

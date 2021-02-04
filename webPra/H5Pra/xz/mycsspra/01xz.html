@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    #container{
+      width: 1000px;height: 560px;
+      margin: 0 auto;
+      background-image:url(./register/bg.png);
+    }
+    #black{
+      width: 273px;height: 297px;
+      margin-top: 150px;
+      margin-left: 600px;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 5px;
+    }
+    #black>table{
+      width: 100%;
+    }
+    #black table h4 {
+      color: #fff;
+      margin: 10px 0;
+    }
+    #black table a{
+      color: #fff;font-size: 12px;
+      text-decoration: none;
+    }
+    .uname,.upwd{
+      box-sizing: border-box;
+      width: 100%;height: 38px;
+      border: 0;outline: 0;
+      background:#fff url(register/yhm.png) no-repeat 97% center;
+      margin: 12px 0;
+      font-size: 14px;
+      padding: 10px 12px;
+    }
+    .upwd{
+      background-image: url(register/mm.png);
+    }
+    table label{
+      color: #fff;font-size: 12px;
+    }
+    table button{
+      width: 100%;height: 37px;
+      border:0;
+      background: #0aa1ed;
+      margin-top: 10px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <table>
+    </table>
+    <div id="black">
+      <table>
+        <tr>
+          <td>
+            <h4>登入學子商城</h4>
+          </td>
+          <td align="right">
+            <a href="">新用戶註冊</a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <hr>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="text" class="uname" placeholder="請輸入用戶名">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="text" class="upwd" placeholder="請輸入密碼">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" id="auto">
+            <label for="auto">自動登入</label>
+          </td>
+          <td align="right">
+            <a href="">忘記密碼</a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button>登入</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .c1,.c2,.c3{
+      width: 200px;height: 200px;
+    }
+    .c1{background-color: #ff0;float: left;}
+    .c2{background: #0ff;float: left;}
+    .c3{background: purple;float: left;}
+  </style>
+</head>
+<body>
+  <h1>浮動，解決多個塊級元素橫向在一行顯示的問題</h1>
+  <div class="c1">元素一旦浮動，該元素脫離文檔流(不占頁面空間，後面元素上前補位。)</div>
+  <div class="c2">浮動元素，會在當前行，靠左/右，停靠在父元素的邊緣，或者是其他已浮動元素的邊緣。
+  </div>
+  <div class="c3">父元素橫向顯示不下所有的浮動元素時，顯示不下的部分會自動換行，默認去距離當前行最近的位置。</div>
+  <div>
+
+  </div>
+</body>
+</html>

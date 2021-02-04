@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function login() {
+      let $uname=uname.value;
+      let $upwd=upwd.value;
+      let xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function () {
+        if(xhr.readyState==4 && xhr.status==200){
+          let result=xhr.responseText;
+          if (result=='1') {
+            alert('登陸成功');
+          }
+          else if (result==0) {
+            alert('用戶密碼錯誤');
+          }
+          else{
+            alert('未接收到用戶信息');
+          }
+        }
+      }
+      xhr.open('get',`/demo/get_login?uname=${$uname}&upwd=${$upwd}`,true);
+      xhr.send(null);
+    }
+  </script>
+</head>
+<body>
+  <input type="text" id="uname"><br>
+  <input type="text" id="upwd"><br>
+  <button onclick="login()">登陸</button>
+</body>
+</html>

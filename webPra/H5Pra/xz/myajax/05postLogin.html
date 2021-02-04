@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function login() {
+      let $uname=uname.value;
+      let $upwd=upwd.value;
+      let xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function(){
+        if (xhr.readyState==4 && xhr.status==200) {
+          let result=xhr.responseText;
+        }
+      }
+      xhr.open('post','/demo/postLogin',true);
+      let formdata=`uname=${$uname}&upwd=${$upwd}`;
+      console.log(formdata);
+      xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+      xhr.send(formdata);
+      console.log('success');
+    }
+  </script>
+</head>
+<body>
+  <input type="text" id="uname"><br>
+  <input type="text" id="upwd"><br>
+  <button onclick="login()">登入</button>
+</body>
+</html>

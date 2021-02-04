@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function show() {
+      let xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function(){
+        if (xhr.readyState==4 && xhr.status==200) {
+          let result=xhr.responseText;
+          //d1.innerHTML=result;
+          let arr=JSON.parse(result);
+          let htmlstr=`
+            <table>
+              <tr>
+                <th>登陸名稱</th>
+                <th>電子郵箱</th>
+                <th>聯繫方式</th>
+                <th>真實姓名</th>
+                <th>用戶性別</th>
+                <th>操作</th>
+               </tr>
+          `;
+          for(let i=0;i<arr.length;i++){
+            htmlstr+=`
+              <tr>
+                <td>${arr[i].uname}</td>
+                <td>${arr[i].email}</td>
+                <td>${arr[i].phone}</td>
+                <td>${arr[i].user_name}</td>
+                <td>${arr[i].gender}</td>
+                <td><a href=''>修改</a>
+                    <a href=''>刪除</a></td>
+            `;
+          }
+          htmlstr+='</table>';
+          d1.innerHTML=htmlstr;
+        }
+      }
+      xhr.open('get','/demo/userList',true);
+      xhr.send();
+    }
+  </script>
+</head>
+<body>
+  <div id="d1"></div>
+  <button onclick="show()">顯示所有用戶</button>
+</body>
+</html>

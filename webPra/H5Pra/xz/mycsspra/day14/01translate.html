@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    div{
+      width: 200px;height: 200px;
+    }
+    #d1{
+      background-color: #ff0;
+      transform:rotate(45deg) translate(300px);/*先轉再位移,坐標軸會一同旋轉,影響原點跟位移效果*/
+    }
+    #d2{
+      background-color: rgba(0, 255, 255, 0.3);
+      position: absolute;
+      top: 0;left: 0;
+      /*縮放*/
+      /* transform: scale(-2);負值反轉,同時設置x軸和y軸的比例 */
+      /* transform: scaleX(); */
+      transform: translate(300px) rotate(45deg);
+    }
+    #d3{background: #f0f;}
+    #d3:hover{
+      transform: scale(2) rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+  <div id="d1">參考元素</div>
+  <div id="d2">轉換元素</div>
+  <div id="d3"></div>
+</body>
+</html>

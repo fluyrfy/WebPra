@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="show()">ajax</button>
+  <script>
+    function show() {
+      let xhr=new XMLHttpRequest();
+      console.log(xhr);
+      xhr.onreadystatechange=function () {
+        //console.log(xhr.readyState);
+        if(xhr.readyState==4 && xhr.status==200){
+          let rusult=xhr.responseText;
+        }
+      }
+      xhr.open('get','http://12.0.0.1:808/login,',true);//xhr.open(method,url,isAsync);
+      xhr.send(null);//post 請求主體為FormData
+
+    }
+  </script>
+</body>
+</html>

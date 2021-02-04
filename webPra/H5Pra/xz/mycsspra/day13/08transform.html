@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{width: 200px;height: 200px;
+    position: absolute;
+    top: 0;left: 0;
+    }
+    #d1{
+      background-color: #0ff;
+    }
+    #d2{
+      background-color: #ff0;
+      /* transform: rotate(45deg);改變元素角度 */
+      transform-origin: right bottom;/*轉換原點*/
+      transform: translate(150px,150px);/*位移:x軸,y軸*/
+    }
+  </style>
+</head>
+<body>
+  <div id="d1">參考元素</div>
+  <div id="d2">轉換元素</div>
+</body>
+</html>

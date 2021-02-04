@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function login() {
+      let $uname=uname.value;
+      let $upwd=upwd.value;
+      let xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function () {
+        if (xhr.readyState==4 && xhr.status==200) {
+          let result=xhr.responseText;
+          alert(result);
+        }
+      }
+      // xhr.open('get',`/demo/getLogin?uname=${$uname}&upwd=${$upwd}`,true);
+      xhr.open('get',`/demo/login/${$uname}&${$upwd}`,true);
+      xhr.send(null);
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <input type="text" id="uname">
+  </div>
+
+  <div>
+    <input type="text" id="upwd">
+  </div>
+  <button onclick="login()">登入</button>
+</body>
+</html>

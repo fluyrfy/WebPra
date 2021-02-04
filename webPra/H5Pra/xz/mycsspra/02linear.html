@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .d1{
+      width: 200px;height: 200px;
+      /* background-image: linear-gradient(to bottom,#000 0px,#ff0 100px,#000 200px); */
+      /* background-image: linear-gradient(to bottom,#000, #ff0); */
+      background-image: linear-gradient(45deg,#0ff,#666);
+    }
+    .d2{
+      width: 200px;height: 200px;
+      background-image: radial-gradient(100px at center center,#000 0%,#ff0 25%,#000 50%,#0FF 75%,#000 100%);
+    }
+    #d3{
+      width: 200px;height: 200px;
+      background-image: repeating-linear-gradient(30deg ,#000 10px,#ff0 20px,#000,30px,#0ff 40px,#000 50px);
+    }
+    .d4{
+      width: 200px;height: 200px;
+      background-image: repeating-radial-gradient(50px at center center,#000 0px,#f00 10px,#000 20px,#ff0 30px,#000 40px);
+    }
+  </style>
+</head>
+<body>
+  <h4>重複線性漸變與徑向漸變</h4>
+  <div class="d4"></div>
+  <br><hr><br>
+  <div id="d3"></div>
+  <br><hr><br>
+  <div class="d1"></div>
+  <div class="d2"></div>
+</body>
+</html>

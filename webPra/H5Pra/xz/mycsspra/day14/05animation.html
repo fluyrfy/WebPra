@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*定義動畫*/
+    @keyframes ffyy {
+      0%{
+        background-color: #f00;border-radius: 0;
+      }
+      25%{
+        background-color: #0f0;border-radius: 0;
+      }
+      50%{
+        background-color: #0ff;border-radius: 50%;
+      }
+      100%{
+        background-color: #00f;border-radius: 0;
+      }
+    }
+    div{
+      width: 200px;height: 200px;
+      /*調用動畫的名稱*/
+      animation-name: ffyy;
+      /*動畫執行的時間*/
+      animation-duration: 3s;
+      /*設置動畫的時間曲線函數*/
+      animation-timing-function: linear;
+      /*延遲執行*/
+      animation-delay: 0.5s;
+      /*動畫的播放次數*/
+      animation-iteration-count: infinite;
+      /*動畫的播放順序*/
+      animation-direction: alternate;/*輪流播放*/
+      /*簡寫方式*/
+      /* animation:*name duration* timing-funtion delay count direction*/
+      /*動畫播放前後的狀態*/
+      animation-fill-mode: both;
+      /*動畫的播放與暫停*/
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body>
+  <div id=""></div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function showList() {
+      let xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function(){
+        if (xhr.readyState==4 && xhr.status==200) {
+          let result=xhr.responseText;
+          let arr=JSON.parse(result);
+          let htmlstr=`<table border="1px"      width='800px'>
+            <tr>
+              <th>用戶名稱</th>
+              <th>用戶郵箱</th>
+              <th>聯繫方式</th>
+              <th>真實姓名</th>
+              <th>性別</th>
+              <th>操作</th>
+            </tr>`;
+          for(let i=0;i<arr.length;i++){
+            htmlstr+=`
+              <tr>
+                <td>${arr[i].uname}</td>
+                <td>${arr[i].email}</td>
+                <td>${arr[i].phone}</td>
+                <td>${arr[i].user_name}</td>
+            `;
+            let sex='';
+            if (arr[i].gender==1) {
+              sex='男';
+            }else if(arr[i].gender==0){
+              sex='女';
+            }else{
+              sex='未確認';
+            }
+            htmlstr+=`
+                <td>${sex}</ㄔd>
+                <td><a href='queryUsers.html?uid=${arr[i].uid}'>修改</a>
+                <a href='javascript:deleteUser(${arr[i].uid})'>刪除</a>
+                </td>
+              </tr>
+            `;
+          }
+          htmlstr+='</table>'
+          d1.innerHTML=htmlstr;
+        }
+      }
+      xhr.open('get','/pro/v1/userlist',true);
+      xhr.send(null);
+    }
+    function deleteUser($uid) {
+      //let $uid=uid.value;
+      let xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function(){
+        if (xhr.readyState==4 && xhr.status==200) {
+          let result =xhr.responseText;
+          if(result==1){
+            showList();
+          }else{
+            alert('刪除失敗');
+          }
+        }
+      }
+      xhr.open('delete',`/pro/v1/deluser/${$uid}`,true);
+      xhr.send(null);
+    }
+  </script>
+</head>
+<body onload="showList()">
+  <div id="d1"></div>
+  <input type="text" id="uid">
+  <button onclick="deleteUser()">刪除用戶</button>
+</body>
+</html>

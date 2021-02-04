@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function showName() {
+      msg1.innerHTML='用戶名6~12位';
+    }
+    function checkName() {
+      let val=uname.value;
+      if(val==""){
+        msg1.innerHTML='用戶名不能為空';
+      }else{
+        msg1.innerHTML='通過';
+      }
+    }
+    function checkCpwd() {
+      let p1=upwd.value;
+      let p2=cpwd.value;
+      if(p1==p2){
+        msg3.innerHTML='兩次輸入一致';
+      }else{
+        msg3.innerHTML='兩次輸入不一致';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <input type="text" id="uname" onfocus="showName()" onblur="checkName()">
+    <span id="msg1"></span>
+  </div>
+  <div>
+  <input type="text" id="upwd" onfocus="msg3()" onblur="msg4()">
+  <span id="msg2"></span>
+  </div>
+  <div>
+  <input type="text" id="cpwd" onblur="checkCpwd()">
+  <span id="msg3"></span>
+  </div>
+</body>
+</html>

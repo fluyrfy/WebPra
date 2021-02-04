@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function queryUser() {
+      // let $uid = uid.value;
+      let urlParams=new URLSearchParams(location.search);
+      let $uid=urlParams.get('uid');
+      alert($uid);
+      uid.value=$uid;
+      let xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function(){
+        if(xhr.readyState==4 && xhr.status==200){
+          let result=xhr.responseText;
+          if (result==0) {
+            alert('uid錯誤，查詢失敗');
+            return;
+          }
+          let user=JSON.parse(result)[0];
+          console.log(user);
+          uname.value=user.name;
+          upwd.value=user.upwd;
+          email.value=user.email;
+          phone.value=user.phone;
+          user_name.value=user.user_name;
+          if(user.gender==1){
+            m.checked=true;
+          }else if(user.gender==0){
+            f.checked=true;
+          }else{
+            un.checked=true;
+          }
+          let $gender='1';
+          if (m.checked) {
+            $gender='1';
+          }
+          if (f.checked) {
+            $gender='0';
+          }
+          // if (un.checked) {
+          //   $gender='null';
+          // }
+        }
+      }
+      xhr.open('get','/pro/v1/queryuser/'+$uid,true);
+      xhr.send();
+    }
+    function updateUser() {
+      let $uid=uid.value;
+      let $name=uid.name;
+      let $upwd=uid.upwd;
+      let $phone=uid.phone;
+      let $email=uid.email;
+      let $user_name=uid.user_name;
+      let $gender=null;
+      if (m.checked) {
+        $gender==1;
+      }else{
+        $gender=0;
+      }
+      let xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function(){
+        if (xhr.readyState==4 && xhr.status==200) {
+          let result=xhr.responseText;
+          if (result==1) {
+            alert('修改成功');
+            location.href='http://localhost:8080/userlist.html' ;
+          }
+          else{
+            alert('修改失敗');
+          }
+        }
+      }
+      xhr.open('put','/pro/v1/updateuser',true);
+      let formdata=`uname=${$uname}&upwd=${$upwd}&email=${$email}&phone=${$phone}&user_name=${$user_name}&gender=${$gender}&uid=${$uid})`;
+      xhr.setRequestHeader('Content-Type','application/x-www-form=urlencoded');
+      xhr.send(formdata);
+    }
+  </script>
+</head>
+<body onload="queryUser()">
+  <div>
+    <input type="text" id="uid" readonly><br>
+    <!-- <button onclick="queryUser()">查詢</button><br> -->
+    <input type="text" id="uname"><br>
+    <input type="text" id="upwd"><br>
+    <input type="text" id="email"><br>
+    <input type="text" id="phone"><br>
+    <input type="text" id="user_name"><br>
+    <!-- <input type="text" id="gender"><br> -->
+    <input type="radio" name="gender" id="m"><label for="m">男</label>
+    <input type="radio" name="gender" id="f"><label for="f">女</label>
+    <input type="radio" name="gender" id="un"><label for="un">保密</label>
+    <button onclick="updateUser()">修改</button>
+  </div>
+</body>
+</html>

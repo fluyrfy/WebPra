@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;
+      box-sizing: border-box;
+    }
+    .container::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    div{border: 2px solid #000;}
+    .left,.middle,.right{float: left;}
+    .left ul li{border: 2px solid purple;
+    list-style: none;}
+    /*pc >=992px*/
+    @media screen and (min-width:992px){
+      .container{
+        width: 1000px;margin: 0 auto;
+      }
+      .left{
+        width: 20%;}
+      .middle{width: 60%;}
+      .right{width: 20%;}
+      .middle img{width: 25%;padding: 5px;}
+    }
+    /*pad >=768px <=991p*/
+    @media screen and (min-width:768px) and (max-width:991px){
+      .container{
+        width: 900px;margin: 0 auto;
+      }
+      .left{
+        width: 30%;}
+      .middle{width: 70%;}
+      .right{display: none;}
+      .middle img{width: 25%;padding: 5px;}
+    }
+    /*phone <=767px*/
+    @media screen and (max-width:767px){
+      .container{
+        width: 700px;margin: 0 auto;
+      }
+      .left{
+        width: 100%;}
+      .middle{width: 100%;}
+      .right{width:100%;}
+      .middle img{width: 50%;padding: 5px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <ul>
+        <li><a href="">荳蔻年華</a></li>
+        <li><a href="">荳蔻年華</a></li>
+        <li><a href="">荳蔻年華</a></li>
+        <li><a href="">荳蔻年華</a></li>
+      </ul>
+    </div>
+    <div class="middle">
+      <div class="imgs">
+        <img src="./img/1.jpg" alt=""><img src="./img/2.jpg" alt=""><img src="./img/3.jpg" alt=""><img src="./img/4.jpg" alt="">
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam earum consequatur blanditiis repellendus architecto incidunt accusamus ex temporibus ad facere fuga velit reiciendis ullam cupiditate aliquam veritatis, veniam ducimus magnam?</p>
+    </div>
+    <div class="right">
+      <p>右側廣告Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim unde tempora atque illum odit, iusto animi cupiditate optio tenetur voluptas quae molestias suscipit reprehenderit sapiente harum consequatur culpa. Cum, obcaecati?
+      </p>
+    </div>
+  </div>
+</body>
+</html>

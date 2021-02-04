@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #d1{width: 400px;height: 400px;
+    background-color: #ff0;}
+    #d1>div{
+      width: 200px;height: 200px;
+      background-color: #0ff;
+      margin-top: 30px;
+    }
+    #d1::before{
+      content: '';
+      display: table;
+    }
+    #d2{
+      border: 2px solid #f00;
+    }
+    #d2>div{
+      width: 200px;height: 200px;
+      background-color: #0ff;
+      float: left;
+    }
+    #d2>div+div{
+      margin-left: 10px;
+    }
+    #d2::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div id="d2">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <br><hr><br><br><br><br><br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="d1">
+    <div></div>
+  </div>
+</body>
+</html>
