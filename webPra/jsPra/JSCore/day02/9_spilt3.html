@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //反轉字符串
+    var str="hello";
+    var arr=str.split("");
+    //將字符串按縫隙切割為字符數組
+    console.log(arr);
+    //調用數組家的reverse()，反轉數組
+    arr=arr.reverse();
+    //反轉後的數組無縫拼接為字符串
+    str=arr.join("");
+    console.log(str);//olleh
+  </script>
+</body>
+</html>

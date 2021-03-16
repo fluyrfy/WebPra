@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str="明明喜歡我，卻不告訴我。別理我，我想靜靜。靜靜是誰？你先告訴我明明是誰。";
+    var reg=/明明|靜靜/g;
+    do{
+      var arr=reg.exec(str);
+      if(arr!=null){
+        console.log(arr);
+      }else{
+        break;
+      }
+    }while (true);
+  </script>
+</body>
+</html>

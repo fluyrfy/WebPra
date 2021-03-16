@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function add(){
+      //arguments[    ].length
+      //          0123
+      var sum=0;
+      //遍歷arguments中每個實參值
+      for (let i = 0; i < arguments.length; i++) {
+        sum+= arguments[i];
+      }
+      return sum;
+    }
+    console.log(
+      add(1,2,3),//6
+      add(1,2,3,4,5),//15
+    )
+  </script>
+</body>
+</html>

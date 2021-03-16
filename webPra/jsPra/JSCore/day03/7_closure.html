@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定義一個函數，幫小孩兒管理壓歲錢
+    //保存總錢數:total
+    //每花一筆錢，就從total中減掉一筆。並輸出花了xx,還剩xx
+
+    //1.用外層函數包裹受保護的變量和內層函數
+    function parent() {
+      var total=1000;
+      //2.外層函數將內層函數return到外部!
+      return function pay(money) {
+      total-=money;
+      console.log(`花了${money}元,還剩${toatal}元`)
+      }
+    }
+    //3.調用外層函數，獲得內層函數返回的函數對象，保存在變量中，反覆使用
+    var pay=parent();
+    pay(100);//花了100元,還剩900元
+    pay(100);//花了100元,還剩800元
+    pay(100);//花了100元,還剩700元
+    //閉包形成:外層函數的作用域對象，被內層函數對象引用著，無法釋放
+  </script>
+</body>
+</html>

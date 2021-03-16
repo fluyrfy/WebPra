@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //請用戶輸入一條消息
+    var msg=prompt('請輸入消息');
+    //去消息中查找是否包含"我草"
+    var arr=msg.match(/([我臥]|wo)\s*([草艹槽]|cao)/i);//i=ignore
+    //如果找到
+    if(arr!=null){
+      //就在頁面顯示：包含敏感詞，不允許發送
+      document.write(`<h1 style='color:red'>包含敏感詞${arr[0]}在位置${arr["index"]}，不允許發送</h1>`)
+    }else{//如果沒找到就在頁面顯示：良好使用者
+      document.write(`<h1>您想說的是: ${msg}</h1>`);
+    }
+    // 用正則表達式模糊查找多種敏感詞:
+    //   var i=str.search(/正則/i)
+  </script>
+</body>
+</html>

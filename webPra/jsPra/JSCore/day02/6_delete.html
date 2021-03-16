@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str="   辣   妹     ";
+    //刪除開頭空字符
+    function ltrim(str) {
+      return str.replace(/^\s+/,"");
+    }
+    //刪除結尾空字符
+    function rtrim(str) {
+      return str.replace(/\s+$/,"");
+    }
+    //同時刪除開頭和結尾的空字符
+    function trim(str) {
+      return str.replace(/^\s+|\s+$/g,"");
+    }
+    console.log(ltrim(str));
+    console.log(rtrim(str));
+    console.log(trim(str));
+  </script>
+</body>
+</html>

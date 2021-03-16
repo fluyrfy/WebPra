@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定義一個雞蛋西紅柿麵的函數
+    function cook(obj) {
+      if (obj.dan===undefined) {
+        obj.dan='雞蛋';
+      }
+      if (obj.cai===undefined) {
+        obj.cai='西紅柿';
+      }
+      if (obj.mian===undefined) {
+        obj.mian='麵';
+      }
+      console.log(`炒${obj.dan}`);
+      console.log(`炒${obj.cai}`);
+      console.log(`炒${obj.dan}和${obj.cai}`);
+      console.log(`煮${obj.mian}`);
+      console.log(`把${obj.mian}和${obj.cai}${obj.dan}拌在一起`);
+      return `熱騰騰的${obj.cai}${obj.dan}${obj.mian}`;
+    }
+    //周一:
+    var wan=cook({});
+    console.log(`獲得一碗:${wan}`);
+    //週二:
+    wan=cook({dan:'辣條',cai:'黃瓜',mian:'米線'});
+    console.log(`獲得一碗:${wan}`);
+    //週三:
+    wan=cook({dan:"火腿腸"});
+    console.log(wan);
+    //週四:
+    wan=cook({cai:"黃瓜"})
+    console.log(wan);
+    //週五:
+    wan=cook({dan:"臭豆腐",cai:"榴槤",mian:"米飯"});
+    console.log(wan);
+  </script>
+</body>
+</html>

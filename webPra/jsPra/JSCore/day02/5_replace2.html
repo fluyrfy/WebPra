@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //每個單詞首字母轉大寫
+    var str="you can you up";
+    //找到每個單詞的首字母，將每個首字母都轉為她的大寫形式
+    var arr=str.match(/\b[a-z]/ig);
+    str=str.replace(/\b[a-z]/ig,function(keyword){
+      //1.必須有一個參數接住本次找到的一個關鍵詞
+      //2.必須返回處理後的新詞
+      //回調函數:我們自己定義，但是不是由我們自己調用執行。而是交給其他對象或函數去執行。
+      return keyword.toUpperCase();
+    });
+    console.log(str);
+    console.log(`共替換${arr!=null?arr.length:0}處`);
+  </script>
+</body>
+</html>

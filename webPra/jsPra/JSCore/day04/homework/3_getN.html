@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //等效于:nAdd=function(){ n++ }
+    function fun() {
+      var n=999;
+      //js中:強行給一個未聲明的變量賦值，結果會自動在全局創建該變量，而不會報錯!
+      nAdd=function(){
+        n++;
+      }
+      return function () {
+        console.log(n);
+      }
+    }
+    var getN=fun();
+    getN();//999
+    nAdd();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //創建一個學生對象lilei
+    //姓名: Li Lei
+    //年齡: 11
+    //會自我介紹: I'm Li Lei, I'm 11
+    var lilei={
+      sname: "Li Lei",
+      sage: 11,
+      intrSelf:function(){
+        console.log(`I'm ${this.sname},I'm ${this.sage}`)
+      }
+    }
+    console.log(`lilei的年齡是:${lilei.sage}`);
+    lilei.intrSelf();
+    //過了一年，lilei長了一歲
+    lilei.sage++;
+    console.log(`lilei的年齡是:${lilei.sage}`);
+    lilei.intrSelf();
+    var Hmm={
+      sname:"Han meimei",
+      sage:18
+    }
+    Hmm.intrSelf=lilei.intrSelf;
+    Hmm.intrSelf();
+  </script>
+</body>
+</html>

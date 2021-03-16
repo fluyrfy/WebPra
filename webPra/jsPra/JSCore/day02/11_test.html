@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //驗證用戶輸入手機號的格式
+    //1. 請用戶輸入手機號
+    var phone=prompt("請輸入手機號");
+    //2. 定義手機號正則表達式對象
+    var reg=/^09\d{8}$/;
+    //3. 用正則表達式，驗證用戶輸入的手機號
+    var bool=reg.test(phone);
+    //4. 如果驗證通過， 就提示手機號可用
+    if(bool==true){
+      document.write(`<h1 style="color:green">手機號可用!</h1>`)
+    }else{//5. 否則提示手機號格式不正確
+      document.write(`<h1 style="color:red">手機號格式不正確!</h1>`);
+    }//test缺點:只要在str中找到部分和reg匹配，就返回true而不要求從頭到尾完全匹配。完整匹配:前^後$
+  </script>
+</body>
+</html>
