@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict";
+    var eric={
+      eid:1001,
+      ename:"埃里克"
+    };
+    //設置eric對象的eid屬性只讀
+    Object.defineProperty(eric,"eid",{writable:false});
+    eric.eid=-2;
+    console.log(eric);
+  </script>
+</body>
+</html>

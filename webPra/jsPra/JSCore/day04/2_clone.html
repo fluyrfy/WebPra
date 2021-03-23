@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var lilei={ sname:"Li Lei", sage:11};
+
+    function clone(obj) {
+      //1.創建一個新的空對象
+      var newObj={
+
+      };
+      //2. 遍歷原對象中每個屬性
+      for(var key in obj){
+        //每遍歷一個屬性，就為新對象添加同名屬性，屬性值為原對象中同名屬性值
+        newObj[key]=obj[key];
+        //newObj.key=obj.key;
+        //如果成員名來自於一個變量，則不能用".變量"方式訪問成員，會被翻譯為["變量"]
+      }
+      return newObj;
+    }
+
+    var lilei2=clone(lilei);
+    console.log(lilei);
+    console.log(lilei2);
+    console.log(lilei==lilei2)//false
+  </script>
+</body>
+</html>

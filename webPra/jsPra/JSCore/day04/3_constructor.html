@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var lilei={
+    //   sname: "Li Lei",
+    //   sage: 11,
+    //   intrSelf:function(){
+    //     console.log(`I'm ${this.sname},I'm ${this.sage}`)
+    //   }
+    // }
+    // var hmm={
+    //   sname: "Han Meimei",
+    //   sage: 12,
+    //   intrSelf:function(){
+    //     console.log(`I'm ${this.sname},I'm ${this.sage}`)
+    //   }
+    // }
+    // var lily={
+    //   sname: "Lily",
+    //   sage: 13,
+    //   intrSelf:function(){
+    //     console.log(`I'm ${this.sname},I'm ${this.sage}`)
+    //   }
+    // }
+    //描述所有學生對象統一的結構
+    //要求:
+    //所有學生都有姓名，年齡兩個屬性
+    //所有學生都會自我介紹
+    function Student(sname,sage) {
+      this.sname=sname;
+      this.sage=sage;
+      this.intrSelf=function(){
+        console.log(`I'm ${this.sname} ${this.sage}years old`)
+      }
+    }
+    var lilei=new Student("Li Lei",11);
+    var hmm=new Student("Han Meimei",12);
+    var lily=new Student("Lily",13);
+    console.log(lilei);
+  </script>
+</body>
+</html>
