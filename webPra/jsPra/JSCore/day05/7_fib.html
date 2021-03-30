@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //匪波納契數列的要求
+    //養兔子:本月的兔子數等於相鄰的前兩個月的兔子數之和
+    // function fib(n) {
+    //   //arguments.callee=當前函數自己_fib
+    //   if(n<3){
+    //     return 1;
+    //   }else{
+    //     return arguments.callee(n-1)+arguments.callee(n-2)
+    //   }
+    // }
+    // console.log(fib(10));
+    //遞歸效率極低，重複運算量過大，ES5嚴格模式出於性能考慮，禁用了arguments.callee,就暗示著不推薦。
+    function fib(n) {
+      if(n<3){
+        return 1;
+      }else{
+        /*  1+1=2 n=3
+            1+2=3 n=4
+            2+3=5 n=5
+            3+5=8 n=6
+        */
+        var f1=1,f2=1,fn;
+        for(var i=3;i<=n;i++){
+          fn=f1+f2;//計算f1+f2=fn
+          //為下一輪作準備
+          f1=f2;
+          f2=fn;
+
+        }
+        return fn;
+      }
+    }
+    console.log(fib(10));
+  </script>
+</body>
+</html>

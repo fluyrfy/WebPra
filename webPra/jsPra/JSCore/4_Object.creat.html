@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var father={
+      bal:10000000,
+      car:"infiniti"
+    }
+    //沒有構造函數的情況下，也想創建一個子對象
+    var hmm=Object.create(father,{
+      //必須用defineProperties中的語法
+      phton:{
+        value:"iPhone xs",
+        writable:true,
+        enumerable:true,
+        configurable:false
+      }
+    });
+    console.log(hmm);
+    console.log(hmm.bal, hmm.car)
+  </script>
+</body>
+</html>

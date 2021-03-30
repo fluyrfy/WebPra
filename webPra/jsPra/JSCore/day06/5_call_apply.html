@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function calc(base, bonus1, bonus2) {
+      console.log(`${this.ename}的 總工資是:${base+bonus1+bonus2}`)//this指向全局的window
+    }
+    //calc(10000,1000,2000);
+    var lilei={ename:"Li Lei"};
+    var hmm={ename:"Han Meimei"};
+
+    //lilei.calc();//報錯:lilei.calc is not a function
+    calc.call(lilei,10000,1000,2000);//替換this的對象
+    //calc.call(hmm,20000,500,500);
+    //call的更大作用:可讓任何對象去調用原本沒有任何關係的一個函數
+    var arr=[4000,5000,6000];
+    calc.apply(hmm,arr);
+    //apply和call用法幾乎一樣，只不過實參值要求放在數組中整體導入
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict";
+    var eric={
+      eid:1001,
+      ename:'埃里克', //禁止刪除
+      salary:12000 //禁止遍歷
+    }
+    //禁止修改eid的值:關閉eid屬性的writable=false
+    //不能用.直接修改屬性對象內部的開關屬性
+    //解決:Object.defineProperty()
+    Object.defineProperty(eric,"eid",{
+      writable:false,
+      configurable:false //一旦改為false不可逆
+    });
+    //嘗試重新打開writable開關
+    // Object.defineProperty(eric,"eid",{
+    //   writable:true,
+    //   configurable:true,
+    // })
+    Object.defineProperty(eric,"ename",{
+      configurable:false,
+    })
+    //禁止遍歷
+    Object.defineProperty(eric,"salary",{
+      enumerable:false,//只能禁止for in 遍歷這個屬性，無法阻止用.直接訪問這個屬性
+      configurable:false
+    })
+    //嘗試修改eid屬性
+    // eric.eid=-2;
+    //嘗試刪除ename屬性
+    delete eric.ename;
+    for(var key in eric){
+      console.log(`${key}:${eric[key]}`);
+    }
+    // 解決多個屬性設定:Object.defineProperties{對象,{
+    //   屬姓名:{
+    //     開關
+    //   }
+    // }
+    console.log(eric);
+  </script>
+</body>
+</html>

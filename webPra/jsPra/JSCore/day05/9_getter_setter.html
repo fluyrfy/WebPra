@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var eric={
+      eid:1001,
+      ename:"埃里克",
+      _eage:25 //可以改，但是必須介於18~65之間
+      /*
+        使用訪問器屬性保護數據屬性:自己不保存數據，專門提供對其他數據屬性的保護
+        時機:只要使用靈活的自訂義規則保護數據屬性時，就要請保鑣!
+      */
+
+    }
+    //將要保護的數據屬性半隱藏
+    Object.defineProperties(eric,{
+      _eage:{
+        enumerable:false,
+        configurable:false
+      },
+      //訪問器屬性不能用.添加
+      //只能用defineProperty或defineProperties添加
+      eage:{
+        //保鑣冒名頂替原屬姓名
+        //保鑣一請就是一對
+        get:function(){
+          //當外人試圖獲取eage的屬性時自動調用get
+          //由get代為從受保護的屬性中拿出真實值返回給外部
+          console.log(`正在試圖獲取值${this._eage}`);
+          return this._eage
+        },
+        set:function(value){
+          //當外人試圖修改eage的屬性值時自動調用set
+          //在set內部使用自訂義規則驗證value
+          console.log(`正在修改新值${value}`);
+          if(value>=18&&value<=65){
+            //符合要求才實際保存回受保護的數據屬性中
+            this._eage=value;
+          }else{
+            throw Error("年齡必須介於18~65之間");
+          }
+        },//不需要value,不實際存儲屬性值
+        //不需要writable,此功能弱才使用保鑣
+        enumerable:true,//需要讓自己拋頭露面來保護原始數據
+        configurable:false,//保鑣不能隨便刪除
+      }
+    })
+    //試圖修改eric的年齡
+    eric.eage=26;
+    console.log(eric);
+  </script>
+</body>
+</html>

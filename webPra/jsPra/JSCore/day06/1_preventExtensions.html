@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict"
+    var eric={
+      eid:1001,
+      ename:'埃里克'
+    }
+    Object.defineProperty(eric,"eid",{
+      writable:false,
+    })
+    Object.preventExtensions(eric);//禁止對eric對象擴展任何屬性
+    eric.Eid=-2;//覺得原本的eid不好用，惡意添加一個
+    console.log(eric)
+  </script>
+</body>
+</html>
