@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //紅球:1~33之間 隨機選6個
+    //藍球:1~16之間 隨機選1個
+    var reds=[];
+    // for(var i=0;i<6;i++){
+    //   reds.push(Math.ceil(Math.random()*33));
+    // }
+    while (reds.length<6) {
+      //如果reds中不包含這次的red
+      var red=Math.ceil(Math.random()*33);
+      if(reds.indexOf(red)==-1){
+        reds.push(red);//才押入reds中保留
+      }//否則繼續計算下一個red
+    }
+    //將紅求升序排列
+    reds.sort(function (a,b) {
+      return a-b
+    });
+    console.log(reds);
+    var blue=Math.ceil(Math.random()*16);
+    console.log(blue);
+  </script>
+</body>
+</html>

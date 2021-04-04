@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var nums=[1,2,3,4,5];
+    //對原數組中每個元素*2
+    // for(var i=0;i<nums.length;i++){
+    //   nums[i]*=2;
+    // }
+    nums.forEach(function (value,i,arr) {
+      arr[i]*=2;
+      //arr[i]=value*2;
+      //複製的是原對象的值
+    })
+    console.log(nums);
+    var objs=[{x:1},{x:2},{x:3},{x:4}];
+    objs.forEach(
+      function (value,i,arr) {
+        value.x*=2;
+        //複製的是原對象的位址
+      }
+    )
+    console.log(objs);
+  </script>
+</body>
+</html>

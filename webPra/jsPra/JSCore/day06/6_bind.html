@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function calc(base, bonus1, bonus2) {
+      console.log(`${this.ename}的 總工資是:${base+bonus1+bonus2}`)//this指向全局的window
+    }
+    //calc(10000,1000,2000);
+    var lilei={ename:"Li Lei"};
+    var hmm={ename:"Han Meimei"};
+
+    //lilei.calc();//報錯:lilei.calc is not a function
+
+    //lilei覺得總是跟別人共用一個calc()函數，不方便
+    var lcalc=calc.bind(lilei,10000);
+    //lcalc:function calc(10000,b1,b2){}
+    //不是調用calc()的意思
+    //而是再新創建一個和原calc()功能完全一樣的lcalc()函數。並'永久'替換新lcalc()函數中的this為lilei
+    //從此調用lcalc()不再需要.call也不需要重新傳入this
+    lcalc(1000,2000);
+    lcalc(2000,3000);
+    //calc.call(lilei,10000,1000,2000);//替換this的對象
+    //calc.call(hmm,20000,500,500);
+    //call的更大作用:可讓任何對象去調用原本沒有任何關係的一個函數
+    //hmm想用call()搶lilei的計算器
+    lcalc.call(hmm,4000,5000);
+    //如果一個函數需要反覆調用，又反覆替換其中的this時，都用bind()來創建副本。
+  </script>
+</body>
+</html>

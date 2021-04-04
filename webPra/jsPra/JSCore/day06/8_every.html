@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr1=[1,2,3,4,5];
+    var arr2=[2,4,6,4,2];
+    //哪個全是偶數組成
+    console.log(
+      arr1.every(function (elem,i,arr) {//自動遍歷每個元素
+        return elem%2==0;
+        //if bool == false 退出函數every
+      }),
+      arr2.every(function (elem,i,arr) {
+        return elem%2==0;
+      })
+    )
+    //判斷哪個數組是升序排列:
+    console.log(
+      arr1.every(function (elem,i,arr) {//自動遍歷每個元素
+        return elem<=arr[i+1];
+        //if bool == false 退出函數every
+      }),
+      arr2.every(function (elem,i,arr) {
+        return elem<=arr[i+1];
+      })
+    )
+  </script>
+</body>
+</html>

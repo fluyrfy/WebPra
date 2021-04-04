@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //統計一個字符串中每個字符出現的個數
+    var str="helloworld";
+    var arr=str.split("");
+    var result=arr.reduce(
+      function (prev,elem) {
+        //prev:{} elem="h"
+
+        //如果prev中沒有這個字母的屬性
+        if(prev[elem]===undefined){
+          prev[elem]=1;
+          //prev[h]=1
+        }else{ //否則就+1
+          prev[elem]+=1;
+        }
+
+        return prev;
+      },
+      {}//prev
+    )
+    console.log(result);
+  </script>
+</body>
+</html>
