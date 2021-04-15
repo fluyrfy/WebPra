@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //行參只有一個，省略()
+    //函數體只有一句話，省略()
+    //如果函數體只有一句話且為return,必須省略return 去掉{}時還要去掉';'
+    var arr=[12,3,123,23,1,2];
+    arr.sort((a,b)=>a-b);
+    console.log(String(arr));
+
+    var str="you can you up";
+    str=str.replace(/\b[a-z]g/,kw=>{
+      kw.toUpperCase()}
+    );
+    console.log(str);
+
+    var nums=[1,2,3,4,5];
+    nums.forEach((elem,i,arr)=>{
+      arr[i]*=2
+    });
+    console.log(String(nums));
+
+    setTimeout(() => {
+      console.log("Boom!!!")
+    }, 3000);
+  </script>
+</body>
+</html>

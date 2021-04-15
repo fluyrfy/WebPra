@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //var沒有塊級作用域
+    var t=0;//準備累加每個任務的耗時
+    function task1() {
+      console.log(`任務1耗時0.3s`);
+      t+=0.3;
+    }
+    function task2() {
+      //var t;//undefined
+      //如果再task2()中已經有了局部變量t就絕不會用全局的
+      console.log(`任務2耗時0.8s`);
+      t+=0.8;
+      //只加在局部變量中，且函數調用完立即釋放
+      var err=false;//模擬出錯的變量
+      if (err==true) {//if eles for while do while等程序結構的{}不是作用域，不是實體牆攔不住var
+      var t=new Date();
+
+      console.log(`出錯啦,at:${t.toLocaleString()}`)
+    }
+    }
+    task1();
+    task2();
+    console.log(`共耗時${t}秒`);
+  </script>
+</body>
+</html>

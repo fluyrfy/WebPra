@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  function liang() {
+    //1. 用new Promise將整個代碼包裹起來
+    //3. 將整個new Promise對象拋出
+    return new Promise(
+      function (door,err) {
+        var bang="liang's stick";
+        console.log(`Liang take ${bang} start run`);
+        setTimeout(() => {//異步
+          if (Math.random()<0.6) {
+            console.log("Liang end");
+            console.log("Liang open the door");
+            //2. 在異部函數最後一句話執行完，開門通知下一個人可以開始執行
+            door(bang);
+          }else{
+            console.log(`Liang failed`);
+            err('Liang cry');
+          }
+        }, 6000);
+      }
+    )
+
+  }
+  function ran(bang) {
+    // 1. 用new Promise()包裹所有代碼
+    //3. 將Promise return出來
+    return new Promise(
+      function (door) {
+        console.log(`Ran take ${bang} then start run`);
+          setTimeout(() => {
+            if (Math.random()<0.6) {
+              console.log("Ran end");
+              console.log("Ran open the door");
+              //2. 當前任務結束自動調用開關door()開門通知下一個函數可以開始進行
+              door(bang);
+            }else{
+              console.log(`Ran failed`);
+              err('Ran cry');
+            }
+
+          }
+          , 6000);
+
+      }
+    )
+  }
+  function dong(bang,err) {
+    return new Promise(
+      function (door) {
+        console.log(`Dong take ${bang} then start run`);
+        setTimeout(() => {
+          if(Math.random()<0.6){
+            console.log("Dong end");
+            console.log("Dong open the door");
+            door();
+          }else{
+            console.log('Dong failed');
+            err('Dong cry');
+          }
+        }, 6000);
+      }
+    )
+  }
+  liang()
+  //2件事:
+  //1. 執行量的任務內容:亮起跑...
+  //2. 創建new Promise 對象並返回
+  //return new Promise()
+  .then(ran)
+  //能否繼續接.then()取決於ran是否支持new Promise()
+  .then(dong)
+  .then(function () {
+    console.log("比賽結束!!!");})
+  .catch(function(err) {
+    console.log(err);
+    console.log('棄權!')
+  })
+</script>
+</body>
+</html>

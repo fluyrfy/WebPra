@@ -28,6 +28,23 @@
       {}//prev
     )
     console.log(result);
+    (function () {
+      var char,count;
+    //遍歷result中每個成員
+    for(var key in result){
+      if (char===undefined) {
+        char=key;
+        count=result[key];
+      }else{
+        if(result[key]>count){
+          char=key;
+          count=result[key];
+        }
+      }
+    }
+    console.log(`${char}出現次數最多，共出現${count}次`);
+    })
+    ();
   </script>
 </body>
 </html>

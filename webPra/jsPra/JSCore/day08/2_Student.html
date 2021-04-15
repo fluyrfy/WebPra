@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  //使用class: 1.用clss{}包裹構造函數和原型對象方法
+  // 2.構造函數名提升為class名，所有構造函數從此統一更名為constructor
+  // 3.所有放在class中的函數,不需要加類型名prototype前綴，自動保存在構造函數的原型對象中
+  function Student(sname,sage) {
+    this.sname=sname;
+    this.sage=sage;
+    this.fav=function(){
+      console.log(`${this.sname} love basketball`)
+    }
+  }
+  //ES5中構造函數和原型對象是分開定義的。不符合"封裝"的要求
+  Student.prototype.intrSelf=function(){
+    console.log(`I'm ${this.sname},I'm ${this.sage}`)
+  }
+  Student.prototype.run=function(){
+    console.log(`${this.sname}開始奔跑...`)
+  }
+
+  var lilei=new Student('Li Lei',11);
+  var hmm=new Student('Han Meimei',12);
+  console.log(lilei);
+  console.log(hmm);
+  lilei.intrSelf();
+  lilei.run();
+  hmm.intrSelf();
+  hmm.run();
+  lilei.fav();
+</script>
+</body>
+</html>

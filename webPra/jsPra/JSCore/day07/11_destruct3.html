@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定義一個雞蛋西紅柿麵的函數
+    function cook({dan:dan="蛋",cai:cai="西紅柿",mian:mian="麵"})//參數解構還可以使用默認值
+     {
+      //dan=dan||"蛋";
+      //cia=cai||"西紅柿";
+      //mian=mian||"麵";
+      console.log(`炒${dan}`);
+      console.log(`炒${cai}`);
+      console.log(`炒${dan}和${cai}`);
+      console.log(`煮${mian}`);
+      console.log(`把${mian}和${cai}${dan}拌在一起`);
+      return `熱騰騰的${cai}${dan}${mian}`;
+    }
+    //周一:
+    var wan=cook({});
+    console.log(`獲得一碗:${wan}`);
+    //週二:
+    wan=cook({dan:'辣條',cai:'黃瓜',mian:'米線'});
+    console.log(`獲得一碗:${wan}`);
+    //週三:
+    wan=cook({dan:"火腿腸"});
+    console.log(wan);
+    //週四:
+    wan=cook({cai:"黃瓜"})
+    console.log(wan);
+    //週五:
+    wan=cook({cai:"榴槤",mian:"米飯"});
+    console.log(wan);
+  </script>
+</body>
+</html>

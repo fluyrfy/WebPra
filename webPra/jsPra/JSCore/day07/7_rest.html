@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function add() {
+    //   var sum=0;
+    //   for(var val of arguments){//改為箭頭函數arguments不可用
+    //     sum+=val;
+    //   }
+    //   return sum;
+    // }
+    // console.log(add(1,2,3),add(1,2,3,4,5));
+    //定義函數時:function fun(形參1, 形參2,...數組名)
+    function calc(ename,...arr/*多少工資不知道*/) {
+      console.log(`${ename}的總工資是:${arr.reduce((prev,elem)=>prev+elem,0)}`)
+    }
+    calc('lilei',10000,5000,3000);
+  </script>
+</body>
+</html>

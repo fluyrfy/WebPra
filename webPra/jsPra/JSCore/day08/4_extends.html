@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Enemy{
+      constructor(x,y){
+        this.x=x;
+        this.y=y;
+      }
+      fly(){
+        console.log(`目標飛行到x:${this.x},y:${this.y}位置`)
+      }
+    }
+    class San extends Enemy{
+      constructor(x,y,award){
+        super(x,y);//父類型的構造函數，請奶奶先把共有的兩個屬性裝到子對象上
+        this.award=award
+        //媽媽再裝自己的屬性
+      }
+      getAward(){
+        console.log(`擊落一個降落傘，獎勵${this.award}`)
+        }
+      }
+      class Plane extends Enemy{
+        constructor(x,y,score){
+          super(x,y);
+          this.score=score;
+        }
+        getScore(){
+          console.log(`擊落一個飛機，獲得${this.score}分`)
+        }
+      }
+    var s1=new San(10,50,'1 life');
+    console.log(s1);
+    s1.fly();
+    s1.getAward();
+    var p1=new Plane(50,100,5);
+    p1.fly();
+    p1.getScore();
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var lilei={//此處不是牆
+      sname:"Li Lei",
+      friends:["jack","rose","tom","jerry"],
+      intrSelf:function(){//此牆不可拆，否則this又指向window
+        this.friends.forEach(
+          fname=>{//拆牆，內外this變成一樣
+            console.log(`${this.sname}認識${fname}`)
+            }//.bind(this)//只要回調函數中的this錯了!只能用bind換
+            //交給主函數的，已經不是原函數。而是一個bind創建的副本，且永久替換this。主函數可以盡情反覆使用
+        )
+      }
+    }
+    lilei.intrSelf();
+  </script>
+</body>
+</html>

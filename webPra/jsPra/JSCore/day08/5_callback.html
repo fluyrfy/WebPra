@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  function liang(callback) {
+    console.log("Liang start run...");
+    setTimeout(() => {//異步
+      console.log("liang end");
+      //在亮的最後一步執行完，自動調用出發時提前託付的任務
+      callback();
+    }, 6000);
+  }
+  function ran(callback) {
+    console.log("Ran start run...");
+    setTimeout(() => {
+      console.log("Ran end");
+      //然最後一步執行完，會自動調用提前託付的callback()任務
+      callback();
+    }, 4000);
+  }
+  function dong(callback) {
+    console.log("Dong start run...");
+    setTimeout(() => {
+      console.log("Dong end");
+      callback();
+    }, 2000);
+  }
+  liang(
+    //callback
+      function () {
+        ran(
+          //callback
+          function () {
+            dong(
+              //callback
+              function () {
+                console.log("比賽結束!!!")
+              }
+            );
+          }
+        );
+      }
+  );
+  //當執行的異步函數太多時會形成callback hell
+</script>
+</body>
+</html>

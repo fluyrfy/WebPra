@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="ulScores">
+    <!-- <li>85</li>
+    <li>72</li>
+    <li>90</li>
+    <li>95</li> -->
+  </ul>
+  <script>
+    var scores=[85,72,90,95];
+    //1. 遍歷每個成績，將每個成績變為一個<li></li>元素，放入新數組中'
+    var newArr=scores.map(
+      function (elem) {
+        return `<li>${elem}</li>`;
+      }
+    )
+    console.log(newArr);
+    //2. 將新數組無縫拼接為字符串
+    var html=newArr.join("");
+    console.log(html);
+    //3. 將字符串賦值給ul的innerHTML
+    //補充: 所有id屬性，自動會變為全局變量。不用找可以直接使用
+    ulScores.innerHTML=html;
+    // ulScores.innerHTML=scores.map(
+    //   function (elem) {
+    //     return `<li>${elem}</li>`;
+    //   }
+    // ).join("");
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  var eid=1001;
+  function intrSelf() {
+    console.log(`我的編號是${this.eid}`);
+  }
+  var friends=['亮亮','然然','東東']
+  var eric={
+    eid,//eid:eid,
+    ename:'埃里克',
+    intrSelf,//intrSelf:intrSelf
+    friends, //friends:friends
+    run(){//:function(){此簡寫不等於arrow,單純簡寫,this不變
+      console.log(`${this.ename}在奔跑...`)
+    }
+  }
+  console.log(eric);
+  eric.intrSelf();
+  eric.run();
+</script>
+</body>
+</html>

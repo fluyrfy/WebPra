@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var arr=["亮亮","然然","東東","燕兒",];
+    // for(var i=0;i<arr.length;i++){
+    //   console.log(arr[i]+" -到")
+    // }
+    // arr.forEach(
+    //   elem=>console.log(elem+" -到")
+    // )
+    // for(var ename of arr){
+    //   console.log(ename+" -到")
+    // }
+    var result={};
+    var str="helloworld";
+    for(var char of str){
+      if(result[char]===undefined){
+        result[char]=1;
+      }else{
+        result[char]+=1;
+      }
+    }
+    console.log(result);
+
+    function add() {
+      var sum=0;
+      for(var val of arguments){//改為箭頭函數arguments不可用
+        sum+=val;
+      }
+      return sum;
+    }
+    console.log(add(1,2,3),add(1,2,3,4,5));
+    //for of 可以遍歷數字下標的數組，類數組對象，字符串中的每個字符。
+    //for in 專門遍歷自定義下標的關聯數組和對象
+  </script>
+</body>
+</html>
