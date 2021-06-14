@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"></script>
+</head>
+<body>
+<div id="app">
+  用户名: <input placeholder="请输入用户名" v-model="uname"><br>
+  密码: <input type="password" placeholder="请输入密码" v-model="upwd"><br>
+  <button @click="login">登录</button>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    uname:"dingding",
+    upwd:"123456"
+  },
+  methods:{
+    /*login(){
+      axios.get(
+        "http://localhost:3000",
+        {
+          params:{
+            uname:this.uname,
+            upwd:this.upwd
+          }
+        }
+      ).then(result=>{
+        //服务端:
+          //res.write({code:1或0})
+        if(result.data.code==1){
+          alert("登录成功！");
+        }else{
+          alert("用户名或密码不正确!")
+        }
+        this.uname="";
+        this.upwd="";
+      })
+    }*/
+    login(){
+      axios.post(
+        "http://localhost:3000",
+        Qs.stringify({
+          uname:this.uname,
+          upwd:this.upwd
+        })
+      ).then(result=>{
+        //服务端:
+          //res.write({code:1或0})
+        if(result.data.code==1){
+          alert("登录成功！");
+        }else{
+          alert("用户名或密码不正确!")
+        }
+        this.uname="";
+        this.upwd="";
+      })
+    }
+  }
+})
+</script>
+</body>
+</html>

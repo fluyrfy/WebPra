@@ -1,0 +1,50 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>遍历节点树</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<span>Hello World !</span>
+		<ul id="nav">
+			<li>电影</li>
+			<li>综艺
+				<ul>
+					<li>{{count}}</li>
+					<li>爸爸</li>
+					<li>{{total}}</li>
+				</ul>
+			</li>
+			<li>剧集</li>
+		</ul>
+    <script src="js/2.js"></script>
+    <script>
+      var total=200;
+      var count=10;
+
+      //Vue框架可以自動將total and count兩個變量的值送到頁面上指定的位置上,核心原理
+
+
+      //深度優先遍歷算法
+      function getChildren(parent) {
+        //1. 先獲得當前父元素下的所有直接子元素
+        var children=parent.children;
+        for(var child of children){
+          //輸出當前子元素的標籤名
+          //console.log(child.nodeName);
+          if (child.innerHTML=="{{total}}") {
+            child.innerHTML=total;
+          }else if (child.innerHTML=="{{count}}") {
+            child.innerHTML=count;
+          }
+          if(child.children.length>0){
+            //如果child下有直接的子元素
+            arguments.callee(child);
+            //再執行一次此函數
+          }
+        }
+      }
+      getChildren(document.body);
+    </script>
+	</body>
+</html>

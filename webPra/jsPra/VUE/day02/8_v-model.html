@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- Vue中:事件修飾符:
+      限制觸發這個事件的鍵盤號 -->
+    <input type="text" v-model:value="kwords" :placeholder="placeholder" @keydown.13="search"><button type="" @click="search">百度一下</button>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        kwords:"",
+        placeholder:"請輸入搜索關鍵詞",
+      },
+      methods: {
+        search(){
+          console.log(`查找${this.kwords}`);
+        }
+      },
+      watch:{
+        kwords(){
+          //alert("kwords變化囉");
+          this.search();
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>navigator对象常用属性</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+	<script>
+    var plugins=navigator.plugins;
+    if(plugins["Chrome PDF Viewer"]===undefined){
+      document.write(`<h1>未安装PDF插件，<a href="javascript:;">点此安装</a></h1>`)
+    }else{
+      document.write(`<h1>已安装pdf插件，可正常浏览pdf文档</h1>`)
+    }
+    //先用Chrome打开: 已安装
+    //再用Microsoft Edge打开: 未安装
+
+    //下边这段代码只能用微软的Edge浏览器测试
+    var ua=navigator.userAgent;
+    document.write(`<h1>${ua}</h1>`);
+    var browser, version;
+    //如果ua中包含MSIE，说明一定是IE浏览器
+    if(ua.indexOf("MSIE")!=-1){
+      browser="IE"
+    }else if(ua.indexOf("Trident")!=-1){
+      browser="IE",version=11;
+    }
+    //如果ua中包含Firefox，说明一定是Firefox浏览器
+    else if(ua.indexOf("Firefox")!=-1){
+      browser="Firefox"
+    }
+    //如果ua中包含OPR，说明一定是OPR浏览器
+    else if(ua.indexOf("OPR")!=-1){
+      browser="OPR"
+    }
+    //如果ua中包含Edge，说明一定是Edge浏览器
+    else if(ua.indexOf("Edge")!=-1){
+      browser="Edge"
+    }
+    //如果ua中包含Chrome，说明一定是Chrome浏览器
+    else if(ua.indexOf("Chrome")!=-1){
+      browser="Chrome"
+    }
+    //如果ua中包含Safari，说明一定是Safari浏览器
+    else if(ua.indexOf("Safari")!=-1){
+      browser="Safari"
+    }
+    document.write(`<h1>浏览器:${browser}</h1>`);
+
+    //如果还不知道浏览器的版本号时: 
+    if(version===undefined){
+      //获得浏览器名称在ua中的位置
+      var i=ua.indexOf(browser);
+      //i跳过浏览器名称的长度，再+1
+      i+=browser.length+1;
+      //从新i位置向后截3位，再parseFloat转为浮点数
+      version=parseFloat(ua.slice(i,i+3));
+    }
+    document.write(`<h1>版本号:${version}</h1>`)
+  </script>
+</body>
+</html>

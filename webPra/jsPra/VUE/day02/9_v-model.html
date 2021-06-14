@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="radio" name="color" value="1" checked="1">黑
+    <input type="radio" name="color" value="2" checked="1">白
+    <h1>性別:{{sex}}</h1>
+    <label>
+      <input type="radio" value="1" v-model:checked="sex">男
+    </label>
+    <label><input type="radio" value="0" v-model:checked="sex">女</label>
+    <label><input type="checkbox" name="" value="">不透露</label>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        sex:"",
+      }
+    })
+  </script>
+</body>
+</html>

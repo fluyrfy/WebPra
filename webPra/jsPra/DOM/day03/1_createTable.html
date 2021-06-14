@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td,th{border:1px solid #ccc}
+</style>
+
+</head>
+<body>
+<div id="data">
+  <table>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>薪资</th>
+        <th>年龄</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<script>
+var json=[
+  {"ename":"Tom", "salary":11000, "age":25},
+  {"ename":"John", "salary":13000, "age":28},
+  {"ename":"Mary", "salary":12000, "age":25}
+];
+//先找到table: id为data下的table
+var table=document.querySelector(
+  "#data>table"
+);
+
+//创建tbody,但是，暂时不追加到table中
+var tbody=document.createElement("tbody")
+
+//遍历json中每个员工对象
+for(var emp of json){
+  //每遍历一个员工对象，就创建一个tr，并追加到tbody中
+  var tr=document.createElement("tr")
+  tbody.appendChild(tr);
+  //遍历当前emp对象的每个属性
+  for(var key in emp){
+    //每遍历一个属性，就创建一个td元素并追加到tr中
+    var td=document.createElement("td")
+    tr.appendChild(td);
+    //设置td的内容为emp对象中当前属性的值
+    td.innerHTML=emp[key];
+  }
+}
+
+//最后一次性将整个tbody追加到table上
+table.appendChild(tbody);
+</script>
+</body>
+</html>

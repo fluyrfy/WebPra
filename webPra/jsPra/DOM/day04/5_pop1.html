@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+ <head>
+	<meta charset="UTF-8">
+	<title>在当前显示区范围内实现点不到的小方块</title>
+	<style>
+		div{position:fixed;width:100px;height:100px;
+			background-image:url(images/xiaoxin.gif);
+      background-size:100%;
+		}
+	</style>
+
+ </head>
+ <body>
+	<div id="pop"></div>
+  <script src="js/5.js">
+  //開關就是一個bool類型的變量而已
+  var canMove=false;//開始時默認關著
+    //1. 當鼠標在圖片上按下時，打開開關 同時獲得鼠標相對於當前div左上角的位置，供每次移動時換算圖片位置之用
+    var offsetX=0, offsetY=0;
+    pop.onmousedown=function(e){
+      canMove=true;
+      offsetX=e.offsetX;
+      offsetY=e.offsetY;
+    }
+    //2. 當鼠標在文檔顯示區內移動時，只有開關開著的時候，才自動獲得鼠標的位置，並計算出圖片的位置
+    window.onmousemove=function(e){
+      if(canMove){
+        var x=e.clientX;
+        var y=e.clientY;
+
+        pop.style.cssText=`left:${left}px; top:${top}px`
+      }
+    }
+    window.mouseout=function(){
+      canMove=false;
+    }
+    //3. 當鼠標從圖片上抬起時，關閉開關
+    pop.onmouseup=function(){
+      canMove=false;
+    }
+  </script>
+ </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-cloak</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1 v-cloak>{{uname}}</h1>
+    <h2 style="width: 200px;height: 100px; background-color: red; color: aliceblue;border: 1px solid yellow;" v-text="score"></h2>
+  </div>
+  <script>
+    setTimeout(() => {
+      var vm=new Vue({
+      el:'#app',
+      data:{
+        uname:"dindin",
+        score:3000
+        }
+      })
+    }, 3000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+li{
+	list-style:none;
+}
+li span{
+	padding-left: 20px;
+	cursor: pointer;
+  background: url("../images/add.png") no-repeat center left;
+}
+li ul{
+	/*display: none; */
+	height:0;
+	overflow:hidden;
+	transition:height .5s linear;
+}
+.open{ 
+	background: url("../images/minus.png") no-repeat center left; 
+}
+/*在css中为不同的菜单高度，定义预案*/
+/*如果第1个li下的span获得open时，span旁边的ul高度变为80*/
+li:nth-child(1)>span.open+ul{ 
+	/*display: block; */
+	height:80px;
+}
+/*如果第2个li下的span获得open时，span旁边的ul高度变为50*/
+li:nth-child(2)>span.open+ul{ 
+	/*display: block; */
+	height:65px;
+}
+/*如果第3个li下的span获得open时，span旁边的ul高度变为106*/
+li:nth-child(3)>span.open+ul{ 
+	/*display: block; */
+	height:106px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM TREE</title>
+</head>
+<body>
+  <span id="s1">Hello</span><!--換行和空格也是節點-->
+  <h1>標題一</h1>
+  <script>
+    //獲得body元素:
+    var body=document.body;
+    console.log(body);
+    //獲得body下的所有直接子元素
+    var childNodes=body.childNodes;
+    console.log(childNodes);//3個
+    //獲得span
+    var span=body.firstChild;
+    console.log(span);
+    //h1
+    var h1=body.childNodes[1];
+    console.log(h1);
+      //span.nextSibling;
+      //script.previousSibling;
+      //解決:元素樹，只包含元素節點的樹
+  </script>
+</body>
+</html>

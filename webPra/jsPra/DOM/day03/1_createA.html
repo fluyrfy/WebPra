@@ -1,0 +1,24 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+</head>
+<body>
+  <h1>Welcome</h1>
+  <p>Welcome to my web site</p>
+  <script>
+    var a=document.createElement("a")
+    a.href="javascript:;";
+    a.innerHTML="click me";
+    //追加在p的后边
+    //document.body.appendChild(a);
+    //将a插入在p之前
+    var p=document.body.children[1];
+    /*document.body.insertBefore(a,p);*/
+    //用a替换掉p
+    document.body.replaceChild(a,p);
+    
+  </script>
+</body>
+</html>

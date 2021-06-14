@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component("my-counter",{
+      template:`<span><button @click="change(-1)">-</button><span>{{n}}</span><button type="" @click="change(1)">+</button></span>`,
+      data(){
+        return {
+          n:0,
+        }
+      },
+      methods: {
+        change(i){
+          this.n+=i;
+        }
+      },
+    })
+  </script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li>1|華為|5000|<my-counter></my-counter>|10000</li>
+      <li>2|小米|3000|<my-counter></my-counter>|9000</li>
+      <li>3|蘋果|8000|<my-counter></my-counter>|8000</li>
+    </ul>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app"
+    })
+  </script>
+</body>
+</html>

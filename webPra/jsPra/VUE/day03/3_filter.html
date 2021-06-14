@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.filter(
+      "sexFilter",function (oldVal) {
+        return oldVal==1?"男":"女";
+      },
+    )
+    Vue.filter(
+      "dateFilter",function (oldVal) {
+        return new Date(oldVal).toLocaleString();
+      }
+    )
+    Vue.filter(
+      "statusFilter",function (oldVal) {
+        return oldVal==0?"未付款":
+               oldVal==10?"已付款":
+               oldVal==20?"已發貨":
+               "已簽收"
+              }
+    )
+  </script>
+</head>
+<body>
+  <div id="app">
+    <h1>性別:{{sex|sexFilter}}</h1>
+    <h1>下單時間:{{orderTime|dateFilter}}</h1>
+    <h1>訂單狀態:{{orderStatus|statusFilter}}</h1>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        sex:1,
+        orderTime:new Date().getTime(),
+        orderStatus:0,
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    #pop{
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="pop" :style="popStyle" style="position: fixed;"></div>
+    <!-- 不變的內聯樣式可和:style並存 -->
+  </div>
+<script>
+  var vm=new Vue({
+    el:"#app",
+    data:{
+      popStyle:{
+        left:"0px",
+        top:"0px",
+      }
+    }
+  })
+  window.onkeydown=function(e){
+    if (e.keyCode==37) {//左
+      var left=parseFloat(vm.popStyle.left);
+      left-=20;
+      vm.popStyle.left=left+"px";
+    }else if (e.keyCode==38) {//上
+      var top=parseFloat(vm.popStyle.top);
+      top-=20;
+      vm.popStyle.top=top+"px";
+    }else if (e.keyCode==39) {//右
+      var left=parseFloat(vm.popStyle.left);
+      left+=20;
+      vm.popStyle.left=left+"px";
+    }else if (e.keyCode==40) {//下
+      var top=parseFloat(vm.popStyle.top);
+      top+=20;
+      vm.popStyle.top=top+"px";
+    }
+  }
+</script>
+</body>
+</html>

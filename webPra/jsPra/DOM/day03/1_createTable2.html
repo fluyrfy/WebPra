@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td,th{border:1px solid #ccc}
+</style>
+
+</head>
+<body>
+<div id="data">
+  <table>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>薪资</th>
+        <th>年龄</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<script>
+var json=[
+  {"ename":"Tom", "salary":11000, "age":25},
+  {"ename":"John", "salary":13000, "age":28},
+  {"ename":"Mary", "salary":12000, "age":25}
+];
+//先找到table: id为data下的table
+var table=document.querySelector(
+  "#data>table"
+);
+//创建函数createAppend:创建一个指定标签名的新元素，并将新元素追加到指定的父元素对象末尾。
+//形参:              标签名 父元素对象
+function createAppend(tag, parent){
+  //先创建指定标签名的新元素
+  var newElem=
+    document.createElement(tag)
+  //如果给了指定的父元素，就追加到父元素
+  if(parent!==undefined){
+    //将新元素追加到指定的父元素末尾
+    parent.appendChild(newElem);
+  }
+  return newElem;//返回新创建的元素，供后续操作继续使用!
+}
+//创建tbody，暂时不指定父元素，也就不追加到table
+var tbody=createAppend("tbody");
+
+//遍历json中每个员工对象
+for(var emp of json){
+  //每遍历一个员工对象，就创建一个tr，并追加到tbody中
+  var tr=createAppend("tr", tbody);
+  //遍历当前emp对象的每个属性
+  for(var key in emp){
+    //每遍历一个属性，就创建一个td元素并追加到tr中
+    var td=createAppend("td", tr);
+    //设置td的内容为emp对象中当前属性的值
+    td.innerHTML=emp[key];
+  }
+}
+//最后再将整个tbody追加到table中
+table.appendChild(tbody);
+</script>
+</body>
+</html>

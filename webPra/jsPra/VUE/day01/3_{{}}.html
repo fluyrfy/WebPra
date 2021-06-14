@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{uname}}</h1>
+    <h2>價格:${{price.toFixed(2)}}</h2>
+    <h3>性別:{{sex==1?'男':'女'}}</h3>
+    <h4>登陸時間:{{loginTime}}</h4>
+    <h4>星期{{week[day]}}</h4>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        uname:'dindin',
+        price:12.5,
+        sex:1,
+        loginTime:new Date().toLocaleTimeString(),
+        week:['日','一'],
+        day:1,
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- step 0 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <!-- step 1. 編寫介面:
+    1.1 整個介面所有內容必須包裹在一個唯一的父元素內
+    1.2 找到介面中可能變化的地方，改為{{變量}} -->
+  <div id="app">
+    <button type="btn2" @click="add">click me for Vue({{n}})</button><!--改為在html綁定事件-->
+  </div>
+  <button type="" id="btn1">click me for DOM(0)</button>
+  <!-- step 2. 編寫自定義js程序 -->
+  <script>
+    //2.1 定義一個對象, 集中保存所有頁面上需要的變量和初始值
+    var data={
+      //因為頁面上需要一個變量n
+      //所以data對象中需要定義一個n
+      n:0,
+    }
+    //2.2 創建Vue對象，將保存數據的data{}和介面<div id="app">綁定起來
+    var vm=new Vue({//參數解構 new Vue=構造函數
+      el:"#app",//負責名為#app這個小區中所有快遞的配送
+      data, //data:data //將保存所有變量的data對象作為這個快遞員的庫房
+      methods:{
+        //因為頁面上需要一個add函數
+        //所以methods中就要加一個add函數
+        add(){
+          //本來想改button中的n，但vue會自動派送，因此只改data中的n即可
+          //vue要求，事件處理函數想修改data中的變量， 必須加this
+          this.n++;
+        }
+      }
+    })
+
+
+    //DOM 4步
+    // var btn1=document.getElementById("btn1");
+    // btn1.onclick=function(){
+    //   var btn=this;
+    //   var n=parseInt(btn.innerHTML.slice(9,-1));
+    //   n++;
+    //   btn.innerHTML=`click me for DOM(${n})`;
+    // }
+  </script>
+</body>
+</html>

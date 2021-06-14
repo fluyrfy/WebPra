@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-once</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1 v-once>頁面加載時間:{{new Date(timer).toLocaleString()}}</h1>
+    <h2>目前時間{{new Date(timer).toLocaleString()}}</h2>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        timer:new Date().getTime(),
+      }
+    })
+    setInterval(() => {
+      vm.timer=new Date().getTime()
+    }, 1000);
+  </script>
+</body>
+</html>

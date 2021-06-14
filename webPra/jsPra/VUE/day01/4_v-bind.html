@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>空氣淨化器</h1>
+    <h2>{{pm25}}</h2>
+    <img v-bind:src="pm25<100?'img/1.png':pm25<200?'img/2.png':pm25<300?'img/3.png':pm25<400?'img/4.png'" alt="">
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        pm25:80,
+      }
+    })
+  </script>
+</body>
+</html>

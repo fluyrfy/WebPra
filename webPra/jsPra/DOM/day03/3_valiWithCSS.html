@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+ <head>
+	<meta charset="UTF-8">
+	<title>实现带样式的表单验证</title>
+	<link rel="Stylesheet" href="css/5.css" />
+ </head>
+ <body>
+	<form id="form1">
+		<h2>增加管理员</h2>
+		<table>
+			<tr>
+				<td>姓名：</td>
+        <td>
+					<input name="username"/>
+					<span>*</span>
+				</td>
+				<td>
+					<div class="vali_info">
+						10个字符以内的字母、数字或下划线的组合
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td>
+					<input type="password" name="pwd"/>
+					<span>*</span>
+				</td>
+				<td>
+					<div class="vali_info">6位数字</div>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="2">
+          <input type="button" value="保存"/>
+          <input type="reset" value="重填"/>
+				</td>
+			</tr>				
+	    </table>
+	</form>
+<script>
+//DOM 4步:
+//1. 查找触发事件的元素
+//2. 绑定事件处理函数
+	//3. 查找要修改的元素
+	//4. 修改元素
+
+//1. 查找触发事件的元素
+var form=document.forms[0];
+var txtName=form.username;
+var txtPwd=form.pwd;
+//2. 绑定事件处理函数
+//先绑定获得焦点事件
+txtName.onfocus=
+txtPwd.onfocus=function(){
+	//3. 查找要修改的元素
+	//先获得当前文本框
+	var txt=this;
+	//找到当前文本框的爹的下一个兄弟的第一个孩子div
+	var div=txt.parentNode //当前td
+						.nextElementSibling //下一个td
+						.children[0];//div
+	//4. 修改元素
+	//脱掉旁边div的隐身斗篷
+	div.className="";
+}
+//a=b=3;
+//2. 绑定事件处理函数: 
+//为两个文本框绑定失去焦点函数
+      //当失去焦点
+txtName.onblur=function(){
+	//定义姓名验证的正则表达式:
+	var reg=/^\w{1,10}$/;
+	//调用封装好的vali函数
+	vali(this,reg);
+}
+function vali(txt,reg){
+	//用reg验证文本框的内容
+	var bool=reg.test(txt.value);
+	//先查找当前文本框旁边的div
+	var div=txt.parentNode //当前td
+						.nextElementSibling //下一个td
+						.children[0];//div
+	//如果验证通过
+	if(bool){
+		//就修改旁边div的className为vali_success
+		div.className="vali_success";
+	}else{//否则(如果验证没通过)
+		//就修改旁边div的className为vali_fail
+		div.className="vali_fail";
+	}
+	return bool;
+}
+txtPwd.onblur=function(){
+	var reg=/^\d{6}$/;
+	vali(this,reg);
+}
+//找到表单中倒数第二个按钮——提交按钮: 
+var btnSubmit=
+	form.elements[form.length-2];
+//绑定单击事件
+btnSubmit.onclick=function(){
+	//验证每个输入项是否输入正确
+	//如果姓名文本框输入错误，就让姓名文本框获得焦点
+	if(vali(txtName,/^\w{1,10}$/)==false){
+		txtName.focus();
+	}else if(vali(txtPwd,/^\d{6}$/)==false){//否则如果密码框输入错误，就让密码框获得焦点
+		txtPwd.focus();
+	}else{//否则才可发送ajax请求提交服务器
+		alert("注册成功!");
+	}
+}
+</script>
+ </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="msg">5s後自動關閉</h1>
+  <a href="javascript:;" id="aStop">留在本頁</a>
+  <script>
+    //先定義定時器的任務函數
+    function task() {
+      //取得h1的內容中的數字
+      var n=parseInt(msg.innerHTML);
+      //將數字-1
+      n--;
+      if (n>0) {//將數字拼接回h1的內容中
+        msg.innerHTML=`${n}s後自動關閉`
+      }else{//如果n==0
+        window.close();//關閉窗口
+      }
+    }
+
+  //啟動週期性定時器，每隔一秒自動調用
+  var timer=setInterval(task, 1000);
+  //為a綁定單擊事件
+  //當單擊a時停止
+  // var aStop=document.getElementsByTagName("a")[0];
+  aStop.onclick=function(){
+    clearInterval(timer);
+  }
+  </script>
+</body>
+</html>

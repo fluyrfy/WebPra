@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-for分頁</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    ul{list-style:none}
+    ul>li{
+      float: left;
+      border: 1px solid blue;
+      padding: 5px 10px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    ul>li:hover{
+      background: lightblue;
+    }
+    ul>li.active{
+      background-color: red;
+      color: #fff;
+      border: none;
+    }
+    ul>li.disabled{
+      background-color: aliceblue;
+      color: #555;
+      border: 1px solid #aaa;
+      cursor: no-drop;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <ul @click="change">
+      <li :class="pno==1?'disabled':''">上一頁</li>
+      <li v-for="i of pcount" :class="pno==i?'active':''" :key="i" >{{i}}</li>
+      <li :class="pno==pcount?'disabled':''">下一頁</li>
+    </ul>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:'#app',
+      data:{
+        pcount:3,
+        pno:1,
+      },
+      methods: {
+        change(e){
+          if (e.target.nodeName=="LI") {
+            switch (e.target.innerHTML) {
+              case '上一頁':
+                if(this.pno>1){
+                  this.pno--;
+                }
+                break;
+              case '下一頁':
+                if (this.pno<this.pcount) {
+                  this.pno++;
+                }
+                break;
+              default:
+                this.pno=parseInt(
+                  e.target.innerHTML
+                );
+                break;
+            }
+          }
+        }
+      },
+    })
+  </script>
+</body>
+</html>

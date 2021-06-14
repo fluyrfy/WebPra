@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td,th{border:1px solid #ccc}
+</style>
+
+</head>
+<body>
+	<div id="data">
+    <table>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>薪資</th>
+          <th>年齡</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <script>
+	var json=[
+    {"ename":"Tom", "salary":11000, "age":25},
+    {"ename":"John", "salary":13000, "age":28},
+    {"ename":"Mary", "salary":12000, "age":25}
+  ];
+	//先找到table: id 為 data 下的 table
+  var table=document.querySelector("#data>table");
+  function createAppend(tag, parent) {
+                    //標籤名, 父元素對象
+    var newElem=document.createElement(tag);
+    if (parent!==undefined) {
+      //將新元素追加到指定的父元素末尾
+      parent.appendChild(newElem);
+    }
+    return newElem;
+  }
+  //創建tbody並追加到table中
+  //var tbody=document.createElement("tbody");
+  //table.appendChild(tbody);
+  var tbody=createAppend("tbody");//暫時不指定父元素
+  for(var emp in json){
+    //每遍歷一個員工對象就創建一個tr並追加到tbody中
+    //var tr=document.createElement("tr");
+    var tr=createAppend("tr", tbody);
+    //tbody.appendChild(tr);
+    for(var key in emp){
+      //每遍歷一個屬性，就創建一個td元素並追加到tr中
+      //var td=document.createElement("td");
+      //tr.appendChild(td);
+      var td=createAppend("td", tr);
+      td.innerHTML=emp[key];
+    }
+  }
+  //優化:每次新增新元素都會導致重排重繪,降低效能
+  //最後一次性將整個tbody追加到table上
+  table.appendChild(tbody);
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.filter(
+      "sexFilter",function (oldVal, lang="cn") {
+        if(lang=="cn"){
+          return oldVal==1?"男":oldVal==0?"女":oldVal=="🧑"?"🧑男":"👧女";
+        }else{
+          return oldVal==1?"Male":oldVal==0?"Female":oldVal=="🧑"?"🧑Male":"👧Female";
+        }
+      },
+    )
+    Vue.filter(
+      "sexIcon",function (oldVal) {//此處值已不是原始值
+        if (oldVal==1||oldVal=="男"||oldVal=="Male") {
+          return oldVal==1?"🧑":oldVal+"🧑";
+        }else{
+          return oldVal==1?"👧":oldVal+"👧";
+        }
+
+      }
+    )
+  </script>
+</head>
+<body>
+  <div id="app">
+    <h1>性別:{{sex1|sexIcon|sexFilter}}</h1>
+    <h1>性別:{{sex2|sexFilter|sexIcon}}</h1>
+    <h1>性別:{{sex1|sexFilter("en")|sexIcon}}</h1>
+    <h1>性別:{{sex2|sexIcon|sexFilter("en")}}</h1>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        sex1:1,
+        sex2:0
+      }
+    })
+  </script>
+</body>
+</html>

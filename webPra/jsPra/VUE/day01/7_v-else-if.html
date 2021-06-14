@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>空氣品質</h1>
+    <h2>{{pm25}}</h2>
+    <img src="img/1.png" alt="" v-if="pm25<100">
+    <img src="img/2.png" alt="" v-else-if="pm25<200">
+    <img src="img/3.png" alt="" v-else-if="pm25<300">
+    <img src="img/4.png" alt="" v-else>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        pm25:180,
+      }
+    })
+    setInterval(() => {
+      vm.pm25=parseInt(Math.random()*400)
+    }, 2000);
+  </script>
+</body>
+</html>

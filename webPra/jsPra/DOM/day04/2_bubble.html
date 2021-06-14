@@ -1,0 +1,33 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>事件处理</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/2.css"/>
+
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2">
+				<div id="d3">
+				</div>
+			</div>
+		</div>
+    <script>
+      //window 自動創建 event對象
+      //
+			d1.onclick=function(e){
+        e.stopPropagation();//停止蔓延
+        alert('d1痛!');
+      }
+      d2.onclick=function(e){
+        e.stopPropagation();
+        alert('d2痛!');
+      }
+      d3.onclick=function(e){
+        e.stopPropagation();
+        alert('d3痛!');
+      }
+		</script>
+	</body>
+</html>

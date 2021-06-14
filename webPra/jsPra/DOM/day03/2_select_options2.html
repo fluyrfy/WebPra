@@ -1,0 +1,100 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>二级联动列表</title>
+<meta charset="utf-8" />
+<style>
+	.hide{ display: none; }
+</style>
+
+</head>
+<body>
+	<select name="provs">
+		<option>—请选择—</option><!--0-->
+		<option>北京市</option><!--1-->
+		<option>天津市</option>
+		<option>河北省</option>
+	</select>
+	
+	<select name="cities" class="hide">
+	</select>
+  <script>
+	/*实现“省”和“市”的级联下拉列表*/
+	var cities=[
+      [{"name":'东城区',"value":101},
+       {"name":'西城区',"value":102},
+       {"name":'海淀区',"value":103},
+       {"name":'朝阳区',"value":104}],
+      [{"name":'河东区',"value":201},
+       {"name":'河西区',"value":202},
+       {"name":'南开区',"value":303}],
+      [{"name":'石家庄市',"value":301},
+       {"name":'廊坊市',"value":302},
+       {"name":'保定市',"value":303},
+       {"name":'唐山市',"value":304},
+       {"name":'秦皇岛市',"value":304}]
+	];
+//DOM 4步:
+//1. 查找触发事件的元素
+//2. 绑定事件处理函数
+  //3. 查找要修改的元素
+  //4. 修改元素
+
+//1. 查找触发事件的元素
+//查找name为provs的select元素
+var selProvs=
+  document.getElementsByName("provs")[0];
+//2. 绑定事件处理函数
+//为selProvs绑定"选中项改变"事件
+//因为反复点击同一项，是不会触发change事件的——减少程序做无用功，提高程序的效率
+//当selProvs的选中项改变时才...
+selProvs.onchange=function(){
+  //3. 查找要修改的元素
+  //查找name为cities的select
+  var selCts=document.getElementsByName("cities")[0];
+  //4. 修改元素
+  //4.0 先获得当前select本身
+  var selProvs=this;
+  //4.1 获得当前select选中项的位置
+  var selectedI=
+    selProvs.selectedIndex;
+  //补: 如果选中的位置是0(-请选择)
+  if(selectedI==0){
+    //就隐藏selCts
+    selCts.className="hide";
+    return;//并退出函数
+  }
+  //4.2 去cities数组中获得selectedI-1位置的子数组
+  var cts=cities[selectedI-1];
+  //4.3 遍历子数组cts
+  //先创建文档片段
+  var frag=
+    document.createDocumentFragment()
+  //再添加一个-请选择- option，追加到frag中
+  frag.appendChild(
+    new Option('-请选择-')
+  );
+  //遍历子数组cts
+  for(var c of cts){
+    //4.4 每遍历一个城市对象，就创建一个option
+    //设置opt的内容为当前城市的名称
+    //4.5 将每个opt都追加到frag中
+    frag.appendChild(
+      new Option(c.name,c.value)
+    );
+  }
+  //4.6 将frag整体追加到selCts中
+  //补: 清空selCts的内容
+  selCts.innerHTML="";
+  selCts.appendChild(frag);
+  //4.7 显示selCts
+  selCts.className="";
+}
+var selCts=document.getElementsByName("cities")[0];
+selCts.onchange=function(){
+//this->selCts
+  console.log(`您选择的是:${this.value}`)
+}
+</script>
+</body>
+</html>

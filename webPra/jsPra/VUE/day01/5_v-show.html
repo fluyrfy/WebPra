@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <span>{{pno}}/{{pcount}}</span>
+    <button type="" v-show="pno<pcount" @click=
+    "next">下一頁</button>
+  </div>
+  <script>
+    //頁面需要顯示:當前第幾頁 pno 和共幾頁 pcount
+    //每單擊一次按鈕,pno +1
+    //只有pno<pcount 按鈕才顯示
+    var vm=new Vue({
+      el:'#app',
+      data:{
+        pno:1,
+        pcount:3,
+      },
+      methods:{
+        next(){
+          this.pno++;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

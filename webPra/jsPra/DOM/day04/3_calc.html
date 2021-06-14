@@ -1,0 +1,33 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>取消与利用冒泡</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<div id="keys">
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button><br>
+			<button>C</button>
+			<button>+</button>
+			<button>-</button>
+			<button>=</button>
+		</div>
+		<textarea id="sc" style="resize:none;width:200px; height:50px;" readonly></textarea>
+    <script>
+      //1.事件僅綁定在父元素一份
+			keys.onclick=function(e){
+      //2.用e.target代替this
+        //e.target專門用來儲存當前事件元素
+        //this->父元素div
+      //3.目標必須經過鑑別符合條件
+        //只有點的是button時
+        if (e.target.nodeName=="BUTTON") {//標籤名必須大寫
+          alert(`${e.target.innerHTML}痛!`);
+        }
+      }
+		</script>
+	</body>
+</html>

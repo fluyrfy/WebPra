@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-for</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <ul @click="del">
+      <li v-for="(item,index) of cart" :key="index"><input type="checkbox" v-model="item.isChecked">{{item.pid}}|{{item.pname}}|{{item.price}}|{{item.count}}<button type="" :data-i="index">X</button></li>
+
+    </ul>
+    <h1>總計:{{total.toFixed(2)}}</h1>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:'#app',
+      data:{
+        cart:[{pid:1, pname:"華為", price:5000, count:3,isChecked:false},
+        {pid:2, pname:"華碩", price:3000, count:4,isChecked:false},
+        {pid:3, pname:"小米", price:2000, count:2,isChecked:false}],
+
+      },
+      methods: {
+        del(e){
+          if (e.target.nodeName=="BUTTON") {
+            var i=parseInt(e.target.dataset.i);//data-i
+            this.cart.splice(i,1)
+          }
+        }
+      },
+      watch:{
+
+      },
+      computed:{
+        total(){
+          // var total=0;
+          // for(var item of this.cart){
+                //if (item.isChecked) {
+                  //   total+=item.price*item.count
+                //}
+          // }
+          // return total;
+          return this.cart.filter(item=>item.isChecked).reduce((prev,item)=>prev+item.price*item.count,0)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

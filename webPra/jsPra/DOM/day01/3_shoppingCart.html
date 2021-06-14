@@ -1,0 +1,108 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>使用Selector API实现购物车客户端计算</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; text-align:center;
+		border-collapse:collapse;
+	}
+	td,th{border:1px solid black}
+	td[colspan="3"]{text-align:right;}
+</style>
+
+</head>
+<body>
+	<table id="data">
+		<thead>
+			<tr>
+				<th>商品名称</th>
+				<th>单价</th>
+				<th>数量</th>
+				<th>小计</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>iPhone6</td>
+				<td>¥4488.00</td>
+        <td>
+          <button>-</button>
+          <span>1</span>
+          <button>+</button>
+        </td>
+				<td>¥4488.00</td>
+			</tr>
+			<tr>
+				<td>iPhone6 plus</td>
+				<td>¥5288.00</td>
+				<td>
+          <button>-</button>
+          <span>1</span>
+          <button>+</button>
+				</td>
+				<td>¥5288.00</td>
+			</tr>
+			<tr>
+				<td>iPad Air 2</td>
+				<td>¥4288.00</td>
+        <td>
+          <button>-</button>
+          <span>1</span>
+          <button>+</button>
+        </td>
+				<td>¥4288.00</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3">Total: </td>
+				<td>¥14064.00</td>
+			</tr>
+		</tfoot>
+	</table>
+  <script src="js/3.js"></script>
+  <script>
+    //DOM操作的標準步驟:4步
+    //1. 查找觸發事件的元素
+    //2. 綁定事件處理函數
+    //3. 查找要修改的元素
+    //4. 修改元素
+  //1. 查找觸發事件的元素
+  //找到table
+  var table=document.getElementById("data");
+  //在table中查找所有的按鈕元素
+  var btns=table.getElementsByTagName("button");
+  console.log(btns);
+  //2. 綁定事件處理函數
+  // btns[0].onclick=function () {
+  //   alert("痛!");
+  // }
+  // for(let btn in btns){
+  //   console.log(btn);
+  // }
+  //遍歷btns中每個按鈕
+  for(let btn of btns){
+    //每遍歷一個按鈕，就為按鈕的onclick屬性提前綁定一個處理函數
+    btn.onclick=function(){
+      //alert("痛!");
+      //讓當前按鈕的背景變為紅色
+      var thisBtn=this;
+      thisBtn.style.backgroundColor='red'//不能用btn,回調函數執行時btn已經循環到最後一個
+      //this較晦澀，所以在企業中都會先給this起外號再使用
+    }
+    //console.log(btn);
+  }
+  /*
+  事件:瀏覽器自動觸發或用戶手動觸發 頁面元素狀態的改變
+  問題:事件隨時有可能發生，但是默認即使發生了事件也不做任何操作
+  解決:元素的事件屬性和事件處理函數
+  事件屬性:onclick onmouseover... 默認值為:null
+  事件處理函數:當事件發生時希望自動執行的函數
+  如何讓事件處理函數在事件發生時，自動執行 btn.onclick=function(){任務}
+  解決:將事件處理函數，提前賦值給元素的事件屬性保存起來
+  原理:只要這個按鈕上發生了某個事件，瀏覽器會自動找按鈕上對應的on xxx事件屬性，事件屬性若提前綁定了處理函數，就自動調用該函數:btn.onclick()
+  */
+  </script>
+</body>
+</html>
