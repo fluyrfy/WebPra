@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "967643",
+      "name": "成功",
+      "font_class": "success",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "1198529",
+      "name": "成功",
+      "font_class": "chenggong",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    }
+  ]
+}
